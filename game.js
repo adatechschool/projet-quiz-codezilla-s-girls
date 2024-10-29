@@ -19,10 +19,3 @@ firstQuestion.options.forEach(option => {
   // optionButton.classList.add("pinguoin"); 
   optionContainer.appendChild(optionButton); // on ajoute le button comme enfant de optionPremierQuestion
 });
-
-firstQuestion.__________.forEach(__________ => {
-  const __________ = document.createElement('button');
-  __________.innerText = __________;
-  __________.classList.add('__________');
-  __________.appendChild(__________);
-});
