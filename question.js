@@ -1,7 +1,7 @@
-const quizZilla = {
+ const quizZilla = {
     questions: [
       {
-        text: "À quoi sert une balise <h1> ?",
+        text: "À quoi sert une balise &lt; h1 &gt; ?",
         options: [
           "Écrire un gros titre important",
           "Écrire un petit titre mignon",
@@ -10,6 +10,7 @@ const quizZilla = {
         ],
         correct_answer: "Écrire un gros titre important"
       },
+      
       /*{text: "En plus de son travail d'astronome, dans quelle autre activité Fatoumata Kébé est-elle impliquée ?",
         options: [
           "Elle enseigne l'astrophotographie aux astronautes de la Station spatiale internationale.",
@@ -22,5 +23,18 @@ const quizZilla = {
       // Autres questions...
     ]
   };
+  //const premiereQuestion = document.getElementsByClassName('question')
+  const premiereQuestion = document.querySelector('.question')
+  const optionPremierQuestion = document.querySelector('.options1')
+  const buttonSuivant = document.querySelector('#next-button')
+  const head = document.querySelector('head') 
 
-  const premiereQuestion 
+  //premiereQuestion.innerHTML = ""
+  for(const question of quizZilla.questions) {
+    premiereQuestion.innerHTML = ` ${question.text} `
+    
+    optionPremierQuestion.innerHTML = ""
+    for (i= 0;i < question.options.length;i++) {
+    optionPremierQuestion.innerHTML += `<button> ${question.options[i]} </button>`
+    }
+  }
