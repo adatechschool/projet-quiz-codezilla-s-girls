@@ -4,20 +4,24 @@ import { quizZilla } from './question.js'; // Import des questions
 const premiereQuestion = document.querySelector('.question');
 const optionPremierQuestion = document.querySelector('.options1');
 
-// Récupérer la première question
-const firstQuestion = quizZilla.questions[0].text;
+// Créer une fonction qui affciche dynamiquement les questions
+const displayQuestions = () => {
+  const firstQuestion = quizZilla.questions[0].text;
+  //console.log(optionFirstQuestion)
+  premiereQuestion.innerText = firstQuestion;
+}
 
-// Récupérer les options de la première question 
-const optionFirstQuestion = quizZilla.questions[0].options
-//console.log(optionFirstQuestion)
+displayQuestions()
 
-// Injecter le texte de la question dans l'emplacement dédié
-premiereQuestion.innerText = firstQuestion;
-
-// Pour chaque option, créer un bouton et l'ajouter au conteneur
-optionFirstQuestion.forEach( option => {
-  //console.log(option)
-  const optionElement = document.createElement('button');
-  optionElement.innerText = option;
-  optionPremierQuestion.appendChild(optionElement);
+const displayOptionQuestions = () => {
+  const optionFirstQuestion = quizZilla.questions[0].options
+  // Pour chaque option, créer un bouton et l'ajouter au conteneur
+  optionFirstQuestion.forEach( option => {
+    //console.log(option)
+    const optionElement = document.createElement('button');
+    optionElement.innerText = option;
+    optionPremierQuestion.appendChild(optionElement);
 });
+};
+
+displayOptionQuestions()
