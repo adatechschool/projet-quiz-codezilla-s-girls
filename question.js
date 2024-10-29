@@ -15,14 +15,20 @@ const quizZilla = {
 
   // Afficher la question sur la page HTML
   const display = document.getElementById('questions');
+  const displayButton = document.getElementsByClassName('options')
+  /*
   const displayButton1 = document.getElementById('button-1');
   const displayButton2 = document.getElementById('button-2');
   const displayButton3 = document.getElementById('button-3');
   const displayButton4 = document.getElementById('button-4');
+  */
 
   for (questions of quizZilla.questions){
     display.innerHTML = questions.text;
     //console.log(questions.text)
+    for(let i = 0; i < questions.options.length; i++){
+      displayButton.innerHTML += `${questions.options}`
+    }
   };
 
   /*
