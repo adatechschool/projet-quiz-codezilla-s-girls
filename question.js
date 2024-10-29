@@ -25,6 +25,7 @@ const quizZilla = {
     //console.log(questions.text)
   };
 
+  /*
   // Afficher les réponse sur la page HTML
 const displayButtons = () => {
   displayButton1.innerHTML = questions.options[0]
@@ -33,4 +34,4 @@ const displayButtons = () => {
   displayButton4.innerHTML = questions.options[3]
 }
 displayButtons();
-
+*/
