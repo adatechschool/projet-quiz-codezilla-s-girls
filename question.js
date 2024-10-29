@@ -1,11 +1,7 @@
- const quizZilla = {
+export const quizZilla = {
     questions: [
       {
-<<<<<<< HEAD
         text: "À quoi sert une balise &lt;h1&gt; ?",
-=======
-        text: "À quoi sert une balise &lt; h1 &gt; ?",
->>>>>>> refs/remotes/origin/main
         options: [
           "Écrire un gros titre important",
           "Écrire un petit titre mignon",
@@ -13,9 +9,6 @@
           "Écrire un titre pas trop gros"
         ],
         correct_answer: "Écrire un gros titre important"
-<<<<<<< HEAD
-      }
-=======
       },
       
       /*{text: "En plus de son travail d'astronome, dans quelle autre activité Fatoumata Kébé est-elle impliquée ?",
@@ -28,7 +21,6 @@
         correct_answer: "Elle milite pour l'éducation des jeunes filles en astronomie."
       },*/
       // Autres questions...
->>>>>>> refs/remotes/origin/main
     ]
   };
   //const premiereQuestion = document.getElementsByClassName('question')
@@ -37,22 +29,6 @@
   const buttonSuivant = document.querySelector('#next-button')
   const head = document.querySelector('head') 
 
-<<<<<<< HEAD
- const premiereQuestion = document.getElementById('questions')
- const options = document.querySelector('.options')
- options.innerHTML = ''
-
-  for (const item of quizZilla.questions) {
-  premiereQuestion.innerHTML = item.text
-
-  
-  for (let i = 0; i < item.options.length; i++){
-  options.innerHTML += `<button>${item.options[i]}</button>`
-  
-  console.log(options)
-}
-  }
-=======
   //premiereQuestion.innerHTML = ""
   for(const question of quizZilla.questions) {
     premiereQuestion.innerHTML = ` ${question.text} `
@@ -62,4 +38,3 @@
     optionPremierQuestion.innerHTML += `<button> ${question.options[i]} </button>`
     }
   }
->>>>>>> refs/remotes/origin/main
