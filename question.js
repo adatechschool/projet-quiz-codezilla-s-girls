@@ -11,7 +11,7 @@ export const quizZilla = {
         correct_answer: "Écrire un gros titre important"
       },
       
-      /*{text: "En plus de son travail d'astronome, dans quelle autre activité Fatoumata Kébé est-elle impliquée ?",
+      {text: "En plus de son travail d'astronome, dans quelle autre activité Fatoumata Kébé est-elle impliquée ?",
         options: [
           "Elle enseigne l'astrophotographie aux astronautes de la Station spatiale internationale.",
           "Elle milite pour l'éducation des jeunes filles en astronomie.",
@@ -19,7 +19,7 @@ export const quizZilla = {
           "Elle développe des applications pour cultiver des potagers en apesanteur."
         ],
         correct_answer: "Elle milite pour l'éducation des jeunes filles en astronomie."
-      },*/
+      },
       // Autres questions...
     ]
   };
