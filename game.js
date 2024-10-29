@@ -1,19 +1,23 @@
-import { quiz_fatoumata_kebe } from './question.js'; // Import des questions
+import { quizZilla } from './question.js'; // Import des questions
 
 // Récupérer les emplacements pour injecter la question et les options
-const premiereQuestion = document.querySelector('.question')
-const optionPremierQuestion = document.querySelector('.options1')
+const premiereQuestion = document.querySelector('.question');
+const optionPremierQuestion = document.querySelector('.options1');
 
 // Récupérer la première question
-const firstQuestion = __________.questions[0];
+const firstQuestion = quizZilla.questions[0].text;
+
+// Récupérer les options de la première question 
+const optionFirstQuestion = quizZilla.questions[0].options
+//console.log(optionFirstQuestion)
 
 // Injecter le texte de la question dans l'emplacement dédié
-__________.innerText = __________;
+premiereQuestion.innerText = firstQuestion;
 
 // Pour chaque option, créer un bouton et l'ajouter au conteneur
-firstQuestion.__________.forEach(__________ => {
-  const __________ = document.createElement('button');
-  __________.innerText = __________;
-  __________.classList.add('__________');
-  __________.appendChild(__________);
+optionFirstQuestion.forEach( option => {
+  //console.log(option)
+  const optionElement = document.createElement('button');
+  optionElement.innerText = option;
+  optionPremierQuestion.appendChild(optionElement);
 });
