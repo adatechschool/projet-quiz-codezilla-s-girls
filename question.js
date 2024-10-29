@@ -1,7 +1,7 @@
 const quizZilla = {
     questions: [
       {
-        text: "À quoi sert une balise <h1> ?",
+        text: "À quoi sert une balise &lt;h1&gt; ?",
         options: [
           "Écrire un gros titre important",
           "Écrire un petit titre mignon",
@@ -9,18 +9,21 @@ const quizZilla = {
           "Écrire un titre pas trop gros"
         ],
         correct_answer: "Écrire un gros titre important"
-      },
-      /*{text: "En plus de son travail d'astronome, dans quelle autre activité Fatoumata Kébé est-elle impliquée ?",
-        options: [
-          "Elle enseigne l'astrophotographie aux astronautes de la Station spatiale internationale.",
-          "Elle milite pour l'éducation des jeunes filles en astronomie.",
-          "Elle entraîne des robots pour des compétitions de quiz interstellaires.",
-          "Elle développe des applications pour cultiver des potagers en apesanteur."
-        ],
-        correct_answer: "Elle milite pour l'éducation des jeunes filles en astronomie."
-      },*/
-      // Autres questions...
+      }
     ]
   };
 
-  const premiereQuestion 
+ const premiereQuestion = document.getElementById('questions')
+ const options = document.querySelector('.options')
+ options.innerHTML = ''
+
+  for (const item of quizZilla.questions) {
+  premiereQuestion.innerHTML = item.text
+
+  
+  for (let i = 0; i < item.options.length; i++){
+  options.innerHTML += `<button>${item.options[i]}</button>`
+  
+  console.log(options)
+}
+  }
