@@ -11,7 +11,8 @@ export const quizZilla = {
         correct_answer: "Écrire un gros titre important"
       },
       
-      {text: "Quel est le rôle de HTML ?",
+      {
+        text: "Quel est le rôle de HTML ?",
         options: [
           "Dinosaure coloré.",
           "Un squellette de dinosaure.",
@@ -20,7 +21,8 @@ export const quizZilla = {
         ],
         correct_answer: "Un squellette de dinosaure."
       },
-      {text: "À quoi sert la propriété text-align:center?",
+      {
+        text: "À quoi sert la propriété text-align:center?",
         options: [
           "Dinosaure à gauche.",
           "Dinosaure à droite.",
@@ -30,7 +32,8 @@ export const quizZilla = {
         correct_answer: "Dinosaure au millieu."
       },
     
-    {text: "Comment changer le coleur de Dinosaure h1 en css en bleu?",
+    {
+      text: "Comment changer le coleur de Dinosaure h1 en css en bleu?",
       options: [
         "h1{color:blue}",
         "h1{background-color:blue}",
