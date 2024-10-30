@@ -1,48 +1,54 @@
 import { quizZilla } from './question.js'; // Import des questions
 
 // Récupérer les emplacements pour injecter la question et les options
-const questions = document.querySelector('.question');
-const optionsQuestion = document.querySelector('.options');
+const questionsElement = document.querySelector('.question');
+const optionsQuestionElement = document.querySelector('.options');
 
-// Récupérer une question 
-const questionIndex = quizZilla.questions[0].text;
+// Récupérer la liste des questions question 
+let questionsList = quizZilla.questions;
+
 // Récuperer les options d'une question
-const optionFirstQuestion = quizZilla.questions[0].options;
+const optionQuestions = quizZilla.questions[0].options;
+console.log("Les options de réponses sont :", optionQuestions)
 
+let currentIndex = 0;
 
 // Créer une fonction qui affciche dynamiquement les questions
-const displayQuestions = () => {
-  questions.innerText = questionIndex;
-}
+const displayQuestions = (index) => {
+  const question = questionsList[index]
+  console.log("affiche moi les questions :", question.text)
+  questionsElement.innerText = question.text;
+  console.log("in displayQuestion", questionsElement)
 
-displayQuestions()
+  optionsQuestionElement.innerHTML = ''
 
-const displayOptionQuestions = () => {
-  optionFirstQuestion.forEach( option => {
+  optionQuestions.forEach( option => {
     //console.log(option)
     const optionElement = document.createElement('button');
     optionElement.innerText = option;
-    optionsQuestion.appendChild(optionElement);
-});
+    optionsQuestionElement.appendChild(optionElement);
+  });
 };
 
-displayOptionQuestions();
-
-// Passer d'une question à une autre
-let currentQuestionIndex = 0;
+//displayQuestions(currentIndex);
 
 // Récupérer le bouton suivant
 const nextButton = document.getElementById('next-button');
 
 const loadQuestion = () => {
   // Afficher une question en fonction de l'index
-  //questions.innerText = questionIndex;
   nextButton.addEventListener('click', () => {
-    currentQuestionIndex++;
-    console.log(currentQuestionIndex)
-
+    currentIndex++;
+    console.log(currentIndex)
+    if (currentIndex < quizZilla.questions.length){
+      displayQuestions(currentIndex)
+    } else {
+      questionsElement.innerText = "Plus de question"
+      optionQuestions.innerHTML = ''
+    }
   })
 
 }
 
 loadQuestion()
+displayQuestions(currentIndex)
