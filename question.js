@@ -1,7 +1,7 @@
- const quizZilla = {
+ export const quizZilla = {
     questions: [
       {
-        text: "À quoi sert une balise &lt; h1 &gt; ?",
+        text: "À quoi sert une balise &lt;h1&gt; ?",
         options: [
           "Écrire un gros titre important",
           "Écrire un petit titre mignon",
@@ -23,18 +23,18 @@
       // Autres questions...
     ]
   };
-  //const premiereQuestion = document.getElementsByClassName('question')
-  const premiereQuestion = document.querySelector('.question')
+ 
+  //const premiereQuestion = document.querySelector('.question')
   const optionPremierQuestion = document.querySelector('.options1')
   const buttonSuivant = document.querySelector('#next-button')
   const head = document.querySelector('head') 
 
   //premiereQuestion.innerHTML = ""
-  for(const question of quizZilla.questions) {
-    premiereQuestion.innerHTML = ` ${question.text} `
+  //for(const question of quizZilla.questions) {
+// premiereQuestion.innerHTML = ` ${question.text} `
     
-    optionPremierQuestion.innerHTML = ""
-    for (let i= 0; i < question.options.length; i++) {
+    //optionPremierQuestion.innerHTML = ""
+    //for (let i= 0; i < question.options.length; i++) {
     optionPremierQuestion.innerHTML += `<button> ${question.options[i]} </button>`
-    }
-  }
+    //}
+ // }
