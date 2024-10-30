@@ -33,7 +33,7 @@ const buttonSuivant = document.querySelector('#next-button');
 // Fonction pour afficher une question basée sur l'index actuel
 
 //function loadQuestion() {
-function displayQuestion(currentQuestionIndex){
+function loadQuestion(currentQuestionIndex){
   // Vider le conteneur des options
   optionContainer.innerHTML = '';
 
@@ -50,7 +50,7 @@ function displayQuestion(currentQuestionIndex){
     optionContainer.appendChild(optionButton);
   });
   }
-  function loadQuestion() {
+  //function loadQuestion() {
 // Ajouter un écouteur d'événements pour le bouton "Suivant"
 buttonSuivant.addEventListener('click',() => {
   // Incrémenter l'index de la question
@@ -58,7 +58,7 @@ buttonSuivant.addEventListener('click',() => {
   // Vérifier s'il reste des questions
   if (currentQuestionIndex < quizZilla.questions.length) {
     // Afficher la question suivante 
-    displayQuestion(currentQuestionIndex)
+    loadQuestion(currentQuestionIndex)
     //currentQuestionIndex++
   } else {
     // Si plus de questions, indiquer la fin du quiz
@@ -67,7 +67,7 @@ buttonSuivant.addEventListener('click',() => {
     buttonSuivant.style.display = 'none'; // Cacher le bouton Suivant
   }
 });
-}
+//}
 // Charger la première question au chargement de la page
-loadQuestion();
+//loadQuestion();
 
