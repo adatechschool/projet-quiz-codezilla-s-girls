@@ -1,8 +1,8 @@
-import { quiz_fatoumata_kebe } from './question.js'; // Import des questions
-
+import { quizZilla } from './question.js'; // Import des questions
+/*
 // Récupérer les emplacements pour injecter la question et les options
-const premiereQuestion = document.querySelector('.question')
-const optionPremierQuestion = document.querySelector('.options1')
+const __________ = document.getElementById('__________');
+const __________ = document.getElementById('__________');
 
 // Récupérer la première question
 const firstQuestion = __________.questions[0];
@@ -17,3 +17,4 @@ firstQuestion.__________.forEach(__________ => {
   __________.classList.add('__________');
   __________.appendChild(__________);
 });
+*/
