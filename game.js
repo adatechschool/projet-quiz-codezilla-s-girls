@@ -9,7 +9,14 @@ let questionsList = quizZilla.questions;
 
 // Récuperer les options d'une question
 const optionQuestions = quizZilla.questions[0].options;
-console.log("Les options de réponses sont :", optionQuestions)
+console.log("Les options de réponses sont :", optionQuestions);
+
+optionQuestions.forEach( option => {
+  //console.log(option)
+  const optionElement = document.createElement('button');
+  optionElement.innerText = option;
+  optionsQuestionElement.appendChild(optionElement);
+});
 
 let currentIndex = 0;
 
