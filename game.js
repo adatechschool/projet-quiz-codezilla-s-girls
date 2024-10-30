@@ -1,13 +1,11 @@
 import { quizZilla } from './question.js'; // Import des questions
 
-console.log(quizZilla)
 // Récupérer les emplacements pour injecter la question et les options
 const questionsElement = document.querySelector('.question');
 const optionsQuestionElement = document.querySelector('.options');
 
 // Récupérer la liste des questions question 
 let questionsList = quizZilla.questions;
-console.log("je recupere les questions", questionsList)
 
 let currentIndex = 0;
 
@@ -30,14 +28,13 @@ const nextButton = document.getElementById('next-button');
 
 nextButton.addEventListener('click', () => {
   currentIndex++;
-  console.log(currentIndex)
   if (currentIndex < quizZilla.questions.length){
     displayQuestions(currentIndex)
   } else {
-    questionsElement.innerText = "Plus de question"
-    optionsQuestionElement.innerHTML = ''
+    questionsElement.innerText = "Plus de question";
+    optionsQuestionElement.innerHTML = '';
+    nextButton.style.display = 'none';
   }
 })
-
 
 displayQuestions(currentIndex);
