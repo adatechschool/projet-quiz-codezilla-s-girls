@@ -15,12 +15,12 @@ let currentIndex = 0;
 
 // Créer une fonction qui affciche dynamiquement les questions
 const displayQuestions = (index) => {
-  const question = questionsList[index]
-  console.log("affiche moi les questions :", question.text)
-  questionsElement.innerText = question.text;
-  console.log("in displayQuestion", questionsElement)
-
   optionsQuestionElement.innerHTML = ''
+
+  const question = questionsList[index]
+  //console.log("affiche moi les questions :", question.text)
+  questionsElement.innerText = question.text;
+  //console.log("in displayQuestion", questionsElement)
 
   optionQuestions.forEach( option => {
     //console.log(option)
