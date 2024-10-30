@@ -69,5 +69,5 @@ buttonSuivant.addEventListener('click',() => {
 });
 //}
 // Charger la première question au chargement de la page
-//loadQuestion();
+loadQuestion();
 
