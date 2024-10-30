@@ -11,10 +11,10 @@ let currentIndex = 0;
 
 // Créer une fonction qui affciche dynamiquement les questions
 const displayQuestions = (index) => {
-  const question = questionsList[index]
+  const question = questionsList[index];
   questionsElement.innerText = question.text;
 
-  optionsQuestionElement.innerHTML = ''
+  optionsQuestionElement.innerHTML = '';
 
   question.options.forEach( option => {
     const optionElement = document.createElement('button');
@@ -23,8 +23,9 @@ const displayQuestions = (index) => {
   });
 };
 
-// Récupérer le bouton suivant
+// Récupérer le bouton suivant & le button replay
 const nextButton = document.getElementById('next-button');
+const replayButton = document.getElementById('replay-button');
 
 nextButton.addEventListener('click', () => {
   currentIndex++;
@@ -34,7 +35,15 @@ nextButton.addEventListener('click', () => {
     questionsElement.innerText = "Plus de question";
     optionsQuestionElement.innerHTML = '';
     nextButton.style.display = 'none';
+    replayButton.style.display = 'inline-block';
   }
+});
+
+replayButton.addEventListener('click', () => {
+  replayButton.style.display = 'none';
+  nextButton.style.display = 'inline-block';
+  currentIndex = 0;
+  displayQuestions(currentIndex)
 })
 
 displayQuestions(currentIndex);
