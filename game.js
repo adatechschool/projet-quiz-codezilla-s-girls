@@ -6,9 +6,8 @@ const optionsQuestionElement = document.querySelector('.options');
 
 // Récupérer la liste des questions question 
 let questionsList = quizZilla.questions;
-
 let currentIndex = 0;
-//let question = questionsList[currentIndex];
+let question = questionsList[currentIndex];
 // Créer une fonction qui affciche dynamiquement les questions
 const displayQuestions = (index) => {
   const question = questionsList[index];
@@ -20,18 +19,15 @@ const displayQuestions = (index) => {
     const optionElement = document.createElement('button');
     optionElement.innerText = option;
     optionsQuestionElement.appendChild(optionElement);
+    nextButton.disabled = true
 
-    optionElement.addEventListener('click', (e) => {
-      const choosenOption = e.target.innerText
-      if (choosenOption === question.correct_answer){
-        console.log('vrai')
-      } else {
-        console.log('faux')
-      }
+    // ajouter l'écouteur de click à chaque option pour appeler checkAnswer
+    optionElement.addEventListener('click', () => {
+      checkAnswer(option, question.correct_answer);
+      nextButton.disabled = false
     })
 });
 };
-
 // Récupérer le bouton suivant & le button replay
 const nextButton = document.getElementById('next-button');
 const replayButton = document.getElementById('replay-button');
@@ -56,3 +52,13 @@ replayButton.addEventListener('click', () => {
 })
 
 displayQuestions(currentIndex);
+
+// Modifier checkAnswer pour accepter les paramètres
+const checkAnswer = (selectedOption, correct_answer) => {
+  if(selectedOption === correct_answer){
+    console.log('vrai') 
+  } else {
+    //nextButton.disabled = true
+    console.log('faux')
+  }
+}
