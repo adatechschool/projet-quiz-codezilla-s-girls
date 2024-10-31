@@ -5,7 +5,7 @@ const questionContainer = document.querySelector('.question')
 const optionContainer = document.querySelector('.options')
 
 // Récupérer la première question
-const firstQuestion = quizZilla.questions[0];
+/*const firstQuestion = quizZilla.questions[0];
 
 // Injecter le texte de la question dans l'emplacement dédit questionContainer.innerText = firstQuestion.text;
 questionContainer.innerText = firstQuestion.text
@@ -15,12 +15,13 @@ questionContainer.innerText = firstQuestion.text
   optionButton.innerText = option; // on change le text de button <button> le text de option </button>
   //optionPremierQuestion.classList.add('__________'); // on ajoute une classe à un élément html 
   optionContainer.appendChild(optionButton); // on ajoute le button comme enfant de optionContainer
-}); 
+}); */
 // Variables pour suivre l'état du quiz
 let currentQuestionIndex = 0; // Commence à la première question
 
 // Sélection des éléments HTML
 const buttonSuivant = document.querySelector('#next-button');
+//const currentQuestion = quizZilla.questions[currentQuestionIndex]
 
 function loadQuestion(currentQuestionIndex){
   // Vider le conteneur des options
@@ -37,8 +38,25 @@ function loadQuestion(currentQuestionIndex){
     optionButton.innerText = option; 
     // optionContainer.classList.add('option-button');
     optionContainer.appendChild(optionButton);
+
+    function checkAnswer(optionChoisi) {
+      if (optionChoisi === currentQuestion.correct_answer) {
+        alert("correct"); 
+      } else {
+        alert("incorrect"); 
+      }
+    }
+  buttonSuivant.disabled = true
+  optionButton.addEventListener("click",(event)=>
+    {
+    const optionChoisi = event.target.innerText
+    console.log(optionChoisi)
+    checkAnswer(optionChoisi)
+    buttonSuivant.disabled = false
+    })
   })
 }
+loadQuestion(currentQuestionIndex)
 // Ajouter un écouteur d'événements pour le bouton "Suivant"
 buttonSuivant.addEventListener('click',() => {
   // Incrémenter l'index de la question
@@ -67,19 +85,8 @@ replayButton.addEventListener('click', () => {
     replayButton.style.display ='none'
     loadQuestion(currentQuestionIndex)
 })
-  
   // TODO Cacher le bouton Rejouer et afficher le bouton Suivant
   
   // TODO Recharger la première question 
-  function checkAnswer() {
-    optionButton.addEventListener("click",(event)=>
-    {
-      const optionChoisi = event.target.innerText
-    if (optionChoisi === currentQuestion.correct_answer) {
-      alert("correct"); 
-    } else {
-      alert("incorrect"); 
-    }
-  })
-  }
-  checkAnswer()
+
+  
