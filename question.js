@@ -46,6 +46,8 @@
   };
   //const premiereQuestion = document.getElementsByClassName('question')
   /*const premiereQuestion = document.querySelector('.question')
+ 
+  //const premiereQuestion = document.querySelector('.question')
   const optionPremierQuestion = document.querySelector('.options1')
   const buttonSuivant = document.querySelector('#next-button')
   const head = document.querySelector('head') 
@@ -56,6 +58,13 @@
 
     optionPremierQuestion.innerHTML = ""
     for (i= 0;i < question.options.length;i++) {
+  //for(const question of quizZilla.questions) {
+// premiereQuestion.innerHTML = ` ${question.text} `
+    
+    //optionPremierQuestion.innerHTML = ""
+    //for (let i= 0; i < question.options.length; i++) {
     optionPremierQuestion.innerHTML += `<button> ${question.options[i]} </button>`
     }
   }*/
+    //}
+ // }
