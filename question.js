@@ -14,26 +14,26 @@
       {
         text: "Quel est le rôle de HTML ?",
         options: [
-          "Dinosaure coloré.",
-          "Un squellette de dinosaure.",
-          "Dinausaure sans coloré.",
-          "Dinosaure dynamique."
+          "Un dinosaure coloré.",
+          "Un squelette de dinosaure.",
+          "Un dinosaure sans couleur.",
+          "Un dinosaure dynamique."
         ],
-        correct_answer: "Un squellette de dinosaure."
+        correct_answer: "Un squelette de dinosaure."
       },
       {
-        text: "À quoi sert la propriété text-align:center?",
+        text: "À quoi sert la propriété text-align:center ?",
         options: [
           "Dinosaure à gauche.",
           "Dinosaure à droite.",
-          "Dinausaure au millieu.",
+          "Dinausaure au milieu.",
           "Dinosaure en bas à droite."
         ],
-        correct_answer: "Dinosaure au millieu."
+        correct_answer: "Dinosaure au milieu."
       },
     
     {
-      text: "Comment changer le coleur de Dinosaure h1 en css en bleu?",
+      text: "Comment changer la couleur d'un dinosaure <h1> en css en bleu?",
       options: [
         "h1{color:blue}",
         "h1{background-color:blue}",
