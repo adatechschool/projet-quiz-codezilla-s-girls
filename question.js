@@ -26,7 +26,7 @@
         options: [
           "Dinosaure à gauche.",
           "Dinosaure à droite.",
-          "Dinausaure au milieu.",
+          "Dinosaure au milieu.",
           "Dinosaure en bas à droite."
         ],
         correct_answer: "Dinosaure au milieu."
