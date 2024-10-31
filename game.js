@@ -47,3 +47,9 @@ replayButton.addEventListener('click', () => {
 })
 
 displayQuestions(currentIndex);
+
+
+// Vérifier si la bonne réponse est sélectionné
+const checkAnswer = () => {
+  
+}
