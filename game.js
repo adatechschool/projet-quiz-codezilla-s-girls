@@ -4,7 +4,6 @@ import {quizZilla} from './question.js' // Import des questions
 const questionContainer = document.querySelector('.question')
 const optionContainer = document.querySelector('.options')
 
-
 // Récupérer la première question
 const firstQuestion = quizZilla.questions[0];
 
@@ -66,22 +65,18 @@ buttonSuivant.addEventListener('click',() => {
     replayButton.style.display="inline-block"
   }
 });
-//}
-// Charger la première question au chargement de la page
-//loadQuestion();
 // Sélection des éléments HTML
 const replayButton = document.querySelector('#replay-button')
 //TODO Ajouter le bouton rejouer à votre liste d‘élements
 // Fonction pour réinitialiser le quiz
 replayButton.addEventListener('click', () => {
   // TODO Réinitialiser l'index 
-  
     currentQuestionIndex=0 
-    buttonSuivant.style.display='none'
-    replayButton.style.display =''
+    buttonSuivant.style.display='inline-block'
+    replayButton.style.display ='none'
+    loadQuestion(currentQuestionIndex)
   
   // TODO Cacher le bouton Rejouer et afficher le bouton Suivant
   
-  // TODO Recharger la première question
-  
+  // TODO Recharger la première question 
 });
