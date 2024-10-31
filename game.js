@@ -8,7 +8,7 @@ const optionsQuestionElement = document.querySelector('.options');
 let questionsList = quizZilla.questions;
 
 let currentIndex = 0;
-
+let question = questionsList[currentIndex];
 // Créer une fonction qui affciche dynamiquement les questions
 const displayQuestions = (index) => {
   const question = questionsList[index];
@@ -48,8 +48,18 @@ replayButton.addEventListener('click', () => {
 
 displayQuestions(currentIndex);
 
-
 // Vérifier si la bonne réponse est sélectionné
+
 const checkAnswer = () => {
-  
+  optionsQuestionElement.addEventListener('click', (e) => {
+    const choosenOption = e.target.innerText
+    console.log("J'ai selectionné une reponse", choosenOption)
+    if (choosenOption === question.correct_answer){
+      console.log('vrai')
+    } else {
+      console.log('faux')
+    }
+  })
 }
+
+checkAnswer()
