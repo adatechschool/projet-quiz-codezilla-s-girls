@@ -7,7 +7,7 @@ const optionsQuestionElement = document.querySelector('.options');
 // Récupérer la liste des questions question 
 let questionsList = quizZilla.questions;
 let currentIndex = 0;
-let question = questionsList[currentIndex];
+//let question = questionsList[currentIndex];
 // Créer une fonction qui affciche dynamiquement les questions
 const displayQuestions = (index) => {
   const question = questionsList[index];
@@ -48,6 +48,7 @@ replayButton.addEventListener('click', () => {
   replayButton.style.display = 'none';
   nextButton.style.display = 'inline-block';
   currentIndex = 0;
+  score = 0
   displayQuestions(currentIndex)
 })
 
