@@ -53,12 +53,21 @@ replayButton.addEventListener('click', () => {
 
 displayQuestions(currentIndex);
 
+// Affichage du score 
+const checkedScore = document.getElementById('score');
+// ajouter un systeme de points
+let score =0;
+
 // Modifier checkAnswer pour accepter les paramètres
 const checkAnswer = (selectedOption, correct_answer) => {
   if(selectedOption === correct_answer){
+    score++
     console.log('vrai') 
   } else {
     //nextButton.disabled = true
     console.log('faux')
   }
-}
+  checkedScore.innerText = `Votre score est de ${score} !`
+};
+
+
