@@ -8,6 +8,17 @@ const optionsQuestionElement = document.querySelector('.options');
 let questionsList = quizZilla.questions;
 let currentIndex = 0;
 //let question = questionsList[currentIndex];
+/*
+// Test progress_bar
+const progress_bar = document.querySelector('.progress');
+//progress_bar.style.display = 'none';
+const updateProgressBar = () => {
+  const progressPercentage = (currentIndex / questionsList.length) * 100;
+  console.log(progressPercentage)
+  progress_bar.style.width = `${progressPercentage}%`;
+};
+*/
+
 // Créer une fonction qui affciche dynamiquement les questions
 const displayQuestions = (index) => {
   const question = questionsList[index];
@@ -27,6 +38,7 @@ const displayQuestions = (index) => {
       nextButton.disabled = false
     })
 });
+//updateProgressBar();
 };
 // Récupérer le bouton suivant & le button replay
 const nextButton = document.getElementById('next-button');
@@ -36,11 +48,13 @@ nextButton.addEventListener('click', () => {
   currentIndex++;
   if (currentIndex < quizZilla.questions.length){
     displayQuestions(currentIndex)
+    //updateProgressBar();
   } else {
     questionsElement.innerText = "Plus de question";
     optionsQuestionElement.innerHTML = '';
     nextButton.style.display = 'none';
     replayButton.style.display = 'inline-block';
+    //progress_bar.style.width = '100%';
   }
 });
 
@@ -50,6 +64,7 @@ replayButton.addEventListener('click', () => {
   currentIndex = 0;
   score = 0
   displayQuestions(currentIndex)
+  //updateProgressBar()
 })
 
 displayQuestions(currentIndex);
@@ -70,5 +85,3 @@ const checkAnswer = (selectedOption, correct_answer) => {
   }
   checkedScore.innerText = `Votre score est de ${score} !`
 };
-
-

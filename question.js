@@ -20,6 +20,33 @@ export const quizZilla = {
         ],
         correct_answer: "Elle milite pour l'éducation des jeunes filles en astronomie."
       },
+      {text: "En plus de son travail d'astronome, dans quelle autre activité Fatoumata Kébé est-elle impliquée ?",
+        options: [
+          "Elle enseigne l'astrophotographie aux astronautes de la Station spatiale internationale.",
+          "Elle milite pour l'éducation des jeunes filles en astronomie.",
+          "Elle entraîne des robots pour des compétitions de quiz interstellaires.",
+          "Elle développe des applications pour cultiver des potagers en apesanteur."
+        ],
+        correct_answer: "Elle milite pour l'éducation des jeunes filles en astronomie."
+      },
+      {text: "En plus de son travail d'astronome, dans quelle autre activité Fatoumata Kébé est-elle impliquée ?",
+        options: [
+          "Elle enseigne l'astrophotographie aux astronautes de la Station spatiale internationale.",
+          "Elle milite pour l'éducation des jeunes filles en astronomie.",
+          "Elle entraîne des robots pour des compétitions de quiz interstellaires.",
+          "Elle développe des applications pour cultiver des potagers en apesanteur."
+        ],
+        correct_answer: "Elle milite pour l'éducation des jeunes filles en astronomie."
+      },
+      {text: "En plus de son travail d'astronome, dans quelle autre activité Fatoumata Kébé est-elle impliquée ?",
+        options: [
+          "Elle enseigne l'astrophotographie aux astronautes de la Station spatiale internationale.",
+          "Elle milite pour l'éducation des jeunes filles en astronomie.",
+          "Elle entraîne des robots pour des compétitions de quiz interstellaires.",
+          "Elle développe des applications pour cultiver des potagers en apesanteur."
+        ],
+        correct_answer: "Elle milite pour l'éducation des jeunes filles en astronomie."
+      },
       // Autres questions...
     ]
   };
