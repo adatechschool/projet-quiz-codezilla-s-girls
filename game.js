@@ -4,29 +4,20 @@ import {quizZilla} from './question.js' // Import des questions
 const questionContainer = document.querySelector('.question')
 const optionContainer = document.querySelector('.options')
 
-// Récupérer la première question
-/*const firstQuestion = quizZilla.questions[0];
-
-// Injecter le texte de la question dans l'emplacement dédit questionContainer.innerText = firstQuestion.text;
-questionContainer.innerText = firstQuestion.text
-// Pour chaque option, créer un bouton et l'ajouter au conteneur
-  firstQuestion.options.forEach(option => {
-  const optionButton = document.createElement('button'); // crée l'élément button html <button></button>
-  optionButton.innerText = option; // on change le text de button <button> le text de option </button>
-  //optionPremierQuestion.classList.add('__________'); // on ajoute une classe à un élément html 
-  optionContainer.appendChild(optionButton); // on ajoute le button comme enfant de optionContainer
-}); */
-// Variables pour suivre l'état du quiz
 let currentQuestionIndex = 0; // Commence à la première question
+let isSelectedOptionValid = false
 
 // Sélection des éléments HTML
 const buttonSuivant = document.querySelector('#next-button');
 //const currentQuestion = quizZilla.questions[currentQuestionIndex]
-
+const score = document.querySelector('#score')
+let pointCount = 0
+const message = document.querySelector('#message')
+//score.innerHTML = `Score: ${pointCount}`
 function loadQuestion(currentQuestionIndex){
   // Vider le conteneur des options
   optionContainer.innerHTML = '';
-
+  isSelectedOptionValid = false
   // Récupérer la question actuelle
   const currentQuestion = quizZilla.questions[currentQuestionIndex];
   // Injecter la question dans le HTML
@@ -40,6 +31,7 @@ function loadQuestion(currentQuestionIndex){
     optionContainer.appendChild(optionButton);
 
     function checkAnswer(optionChoisi) {
+      isSelectedOptionValid = optionChoisi === currentQuestion.correct_answer
       if (optionChoisi === currentQuestion.correct_answer) {
         alert("correct"); 
       } else {
@@ -59,19 +51,30 @@ function loadQuestion(currentQuestionIndex){
 loadQuestion(currentQuestionIndex)
 // Ajouter un écouteur d'événements pour le bouton "Suivant"
 buttonSuivant.addEventListener('click',() => {
+  if (isSelectedOptionValid) {
+        pointCount++
+  }
+  //score.innerHTML = `Score total: ${pointCount}`
   // Incrémenter l'index de la question
   currentQuestionIndex++;
   // Vérifier s'il reste des questions
   if (currentQuestionIndex < quizZilla.questions.length) {
     // Afficher la question suivante 
     loadQuestion(currentQuestionIndex)
-  
   } else {
     // Si plus de questions, indiquer la fin du quiz
     questionContainer.innerText = 'Fin du quiz';
     optionContainer.innerHTML = ''; // Effacer les options
     buttonSuivant.style.display = 'none'; // Cacher le bouton Suivant
-    replayButton.style.display="inline-block"
+    replayButton.style.display = "inline-block"
+    score.innerHTML =`Score total: ${pointCount}`
+    if (pointCount==quizZilla.questions.length){
+      message.innerText = "Bien joué !!!"
+    } else if (pointCount >= 0.5*quizZilla.questions.length){
+      message.innerText = "Pas mal !"
+    } else {
+      message.innerText = "Recommence"
+    }
   }
 });
 // Sélection des éléments HTML
@@ -84,9 +87,10 @@ replayButton.addEventListener('click', () => {
     buttonSuivant.style.display='inline-block'
     replayButton.style.display ='none'
     loadQuestion(currentQuestionIndex)
+    score.innerHTML=""
+    pointCount = 0 
+    message.innerHTML=""
 })
   // TODO Cacher le bouton Rejouer et afficher le bouton Suivant
   
   // TODO Recharger la première question 
-
-  

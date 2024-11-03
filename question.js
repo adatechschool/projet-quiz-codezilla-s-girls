@@ -16,7 +16,7 @@ export const quizZilla = {
         options: [
           "Dinosaure coloré.",
           "Un squellette de dinosaure.",
-          "Dinausaure sans coloré.",
+          "Dinosaure sans coloré.",
           "Dinosaure dynamique."
         ],
         correct_answer: "Un squellette de dinosaure."
@@ -26,7 +26,7 @@ export const quizZilla = {
         options: [
           "Dinosaure à gauche.",
           "Dinosaure à droite.",
-          "Dinausaure au millieu.",
+          "Dinosaure au millieu.",
           "Dinosaure en bas à droite."
         ],
         correct_answer: "Dinosaure au millieu."
