@@ -14,10 +14,10 @@
       {
         text: "Quel est le rôle de HTML ?",
         options: [
-          "Un dinosaure coloré.",
-          "Un squelette de dinosaure.",
-          "Un dinosaure sans couleur.",
-          "Un dinosaure dynamique."
+          "Dinosaure coloré.",
+          "Un squellette de dinosaure.",
+          "Dinosaure sans coloré.",
+          "Dinosaure dynamique."
         ],
         correct_answer: "Un squelette de dinosaure."
       },
@@ -26,7 +26,7 @@
         options: [
           "Dinosaure à gauche.",
           "Dinosaure à droite.",
-          "Dinosaure au milieu.",
+          "Dinosaure au millieu.",
           "Dinosaure en bas à droite."
         ],
         correct_answer: "Dinosaure au milieu."
