@@ -22,6 +22,7 @@ function loadQuestion(currentQuestionIndex){
   
   currentQuestion.options.forEach(option => {
     const optionButton = document.createElement('button');
+    optionButton.classList.add('option-button')
     optionButton.innerText = option; 
     optionContainer.appendChild(optionButton);
     buttonSuivant.disabled = true;
