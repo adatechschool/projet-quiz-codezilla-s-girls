@@ -92,7 +92,7 @@ replayButton.addEventListener('click', () => {
     loadQuestion(currentQuestionIndex)
 })
   // TODO Cacher le bouton Rejouer et afficher le bouton Suivant
-  
+r  
   // TODO Recharger la première question 
 
   
