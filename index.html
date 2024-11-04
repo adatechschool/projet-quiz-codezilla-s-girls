@@ -4,29 +4,42 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CodeZilla Kids</title>
+<link rel="stylesheet" href="fonts.css">
 <link rel="stylesheet" href="style.css">
 <script type="module" src="question.js" defer></script>
 <script type="module" src="game.js" defer></script>
 </head>
 
 <body>
-    <header>Header</header>
-	<div id="quiz-container">
+	<header class="logoNav wrapper"> <!-- logo et navbar -->
+        <a href="/" class="logo">CodeZilla Kids</a>
+
+                <div>
+                    <nav>
+                        <ul class="navbar">
+                            <li><a href="/">Cours</a></li>
+                            <li><a href="#">Exercices</a></li>
+                            <li><a href="#">Profil</a></li>
+                        </ul>
+                    </nav>
+                </div>
+    </header>
+	<main>           
+	<div id="quiz-container" class="container wrapper">
 	<!-- Section pour la question -->
 		<div class="question" id="questions"></div>
 		<!-- Section pour les options -->
-		<div class="options"></div>
+		<div class="options"></div>	
 		<!-- Prévois déjà le design du bouton "suivant" pour passer à la prochaine question -->
 		 <div class="button-container">
-		  <button id="next-button">Suivant</button> 
-		  <button id="replay-button" style="display: none;">Rejouer</button>
-
+		  <button id="next-button">Suivant</button>
 		  <p id =score></p>
 		  <p id = message></p> 
 		  <button id="replay-button" style="display: none;">Rejouer</button> 
 
 		</div>
+		<div id="score"></div>
 	</div>
-
+	</main>
 </body>
 </html>
