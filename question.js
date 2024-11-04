@@ -1,10 +1,12 @@
 
+
  export const quizZilla = {
 
     questions: [
       {
 
         text: "À quoi sert une balise <h1> ?",
+
 
         options: [
           "Écrire un gros titre important",
@@ -53,24 +55,4 @@
     },
     ]
   };
-  //const premiereQuestion = document.getElementsByClassName('question')
-  /*const premiereQuestion = document.querySelector('.question')
- 
-  //const premiereQuestion = document.querySelector('.question')
-  const optionPremierQuestion = document.querySelector('.options1')
-  const buttonSuivant = document.querySelector('#next-button')
-  const head = document.querySelector('head') 
 
-  //premiereQuestion.innerHTML = ""
-  for(const question of quizZilla.questions) {
-    premiereQuestion.innerHTML = ` ${question.text} `
-
-    optionPremierQuestion.innerHTML = ""
-
-    for (let i= 0; i < question.options.length; i++) {
-
-    optionPremierQuestion.innerHTML += `<button> ${question.options[i]} </button>`
-    }
-  }*/
-    //}
- // }
