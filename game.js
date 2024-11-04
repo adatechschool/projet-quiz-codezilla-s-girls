@@ -56,8 +56,8 @@ function loadQuestion(currentQuestionIndex){
 buttonSuivant.addEventListener('click',() => {
   if (isSelectedOptionValid) {
         pointCount++
+        score.innerHTML =`Score total: ${pointCount}` 
   }
-  //score.innerHTML = `Score total: ${pointCount}`
   // Incrémenter l'index de la question
   currentQuestionIndex++;
   // Vérifier s'il reste des questions
@@ -71,7 +71,7 @@ buttonSuivant.addEventListener('click',() => {
     buttonSuivant.style.display = 'none'; // Cacher le bouton Suivant
     replayButton.style.display = "inline-block"
     score.innerHTML =`Score total: ${pointCount}`
-    if (pointCount==quizZilla.questions.length){
+    if (pointCount === quizZilla.questions.length){
       message.innerText = "Bien joué !!!"
     } else if (pointCount >= 0.5*quizZilla.questions.length){
       message.innerText = "Pas mal !"
@@ -96,5 +96,3 @@ replayButton.addEventListener('click', () => {
     pointCount = 0 
     message.innerHTML=""
 })
-  // TODO Cacher le bouton Rejouer et afficher le bouton Suivant
-
