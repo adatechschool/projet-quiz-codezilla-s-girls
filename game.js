@@ -1,7 +1,8 @@
-import {quizZilla} from './question.js' // Import des questions
+import { quizZilla } from './question.js'; // Import des questions
+
 // Récupérer les emplacements pour injecter la question et les options
-const questionContainer = document.querySelector('.question')
-const optionContainer = document.querySelector('.options')
+const questionsElement = document.querySelector('.question');
+const optionsQuestionElement = document.querySelector('.options');
 
 // Récupérer la liste des questions question 
 let questionsList = quizZilla.questions;
@@ -17,28 +18,11 @@ const updateProgressBar = () => {
   progress_bar.style.width = `${progressPercentage}%`;
 };
 */
-// Injecter le texte de la question dans l'emplacement dédit questionContainer.innerText = firstQuestion.text;
-questionContainer.innerText = firstQuestion.text
-  firstQuestion.options.forEach(option => {
-  const optionButton = document.createElement('button');
-  optionButton.innerText = option; 
-  optionContainer.appendChild(optionButton); 
-});
-let currentQuestionIndex = 0; 
-const buttonSuivant = document.querySelector('#next-button');
-const currentQuestion = quizZilla.questions[currentQuestionIndex]
 
-function loadQuestion(currentQuestionIndex){
-  optionContainer.innerHTML = '';
-  const currentQuestion = quizZilla.questions[currentQuestionIndex];
-  questionContainer.innerText = currentQuestion.text;
-
-
-  currentQuestion.options.forEach(option => {
-    const optionButton = document.createElement('button');
-    optionButton.innerText = option;
-    optionContainer.appendChild(optionButton);
-  })
+// Créer une fonction qui affciche dynamiquement les questions
+const displayQuestions = (index) => {
+  const question = questionsList[index];
+  questionsElement.innerText = question.text;
 
   optionsQuestionElement.innerHTML = '';
 
@@ -54,9 +38,8 @@ function loadQuestion(currentQuestionIndex){
       nextButton.disabled = false
     })
 });
-}
-
 //updateProgressBar();
+};
 // Récupérer le bouton suivant & le button replay
 const nextButton = document.getElementById('next-button');
 const replayButton = document.getElementById('replay-button');
@@ -73,7 +56,7 @@ nextButton.addEventListener('click', () => {
     replayButton.style.display = 'inline-block';
     //progress_bar.style.width = '100%';
   }
-})
+});
 
 replayButton.addEventListener('click', () => {
   replayButton.style.display = 'none';
@@ -82,11 +65,10 @@ replayButton.addEventListener('click', () => {
   score = 0
   displayQuestions(currentIndex)
   //updateProgressBar()
-    currentQuestionIndex=0
-    buttonSuivant.style.display='inline-block'
-    replayButton.style.display ='none'
-    loadQuestion(currentQuestionIndex)
 })
+
+displayQuestions(currentIndex);
+
 // Affichage du score 
 const checkedScore = document.getElementById('score');
 // ajouter un systeme de points
