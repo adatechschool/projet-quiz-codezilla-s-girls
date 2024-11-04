@@ -1,7 +1,11 @@
+
  export const quizZilla = {
+
     questions: [
       {
+
         text: "À quoi sert une balise <h1> ?",
+
         options: [
           "Écrire un gros titre important",
           "Écrire un petit titre mignon",
@@ -17,7 +21,11 @@
           "Un dinosaure coloré.",
           "Un squelette de dinosaure.",
           "Un dinosaure sans couleur.",
-          "Un dinosaure dynamique."
+          "Un dinosaure dynamique.",
+          "Dinosaure coloré.",
+          "Un squellette de dinosaure.",
+          "Dinosaure sans coloré.",
+          "Dinosaure dynamique."
         ],
         correct_answer: "Un squelette de dinosaure."
       },
@@ -26,7 +34,8 @@
         options: [
           "Dinosaure à gauche.",
           "Dinosaure à droite.",
-          "Dinosaure au milieu.",
+
+          "Dinosaure au millieu.",
           "Dinosaure en bas à droite."
         ],
         correct_answer: "Dinosaure au milieu."
@@ -57,12 +66,9 @@
     premiereQuestion.innerHTML = ` ${question.text} `
 
     optionPremierQuestion.innerHTML = ""
-    for (i= 0;i < question.options.length;i++) {
-  //for(const question of quizZilla.questions) {
-// premiereQuestion.innerHTML = ` ${question.text} `
-    
-    //optionPremierQuestion.innerHTML = ""
-    //for (let i= 0; i < question.options.length; i++) {
+
+    for (let i= 0; i < question.options.length; i++) {
+
     optionPremierQuestion.innerHTML += `<button> ${question.options[i]} </button>`
     }
   }*/

@@ -1,26 +1,25 @@
+
 import {quizZilla} from './question.js' // Import des questions
 // Récupérer les emplacements pour injecter la question et les options
 const questionContainer = document.querySelector('.question')
 const optionContainer = document.querySelector('.options')
-// Récupérer la première question
-const firstQuestion = quizZilla.questions[0];
-// Injecter le texte de la question dans l'emplacement dédit questionContainer.innerText = firstQuestion.text;
-questionContainer.innerText = firstQuestion.text
-// Pour chaque option, créer un bouton et l'ajouter au conteneur
-  firstQuestion.options.forEach(option => {
-  const optionButton = document.createElement('button'); // crée l'élément button html <button></button>
-  optionButton.innerText = option; // on change le text de button <button> le text de option </button>
-  //optionPremierQuestion.classList.add('__________'); // on ajoute une classe à un élément html
-  optionContainer.appendChild(optionButton); // on ajoute le button comme enfant de optionContainer
-});
-// Variables pour suivre l'état du quiz
+
+
 let currentQuestionIndex = 0; // Commence à la première question
+let isSelectedOptionValid = false
+
 // Sélection des éléments HTML
 const buttonSuivant = document.querySelector('#next-button');
-const currentQuestion = quizZilla.questions[currentQuestionIndex]
+//const currentQuestion = quizZilla.questions[currentQuestionIndex]
+const score = document.querySelector('#score')
+let pointCount = 0
+const message = document.querySelector('#message')
+//score.innerHTML = `Score: ${pointCount}`
 function loadQuestion(currentQuestionIndex){
   // Vider le conteneur des options
   optionContainer.innerHTML = '';
+  isSelectedOptionValid = false
+
   // Récupérer la question actuelle
   const currentQuestion = quizZilla.questions[currentQuestionIndex];
   // Injecter la question dans le HTML
@@ -31,6 +30,25 @@ function loadQuestion(currentQuestionIndex){
     optionButton.innerText = option;
     // optionContainer.classList.add('option-button');
     optionContainer.appendChild(optionButton);
+
+
+    function checkAnswer(optionChoisi) {
+      isSelectedOptionValid = optionChoisi === currentQuestion.correct_answer
+      if (optionChoisi === currentQuestion.correct_answer) {
+        alert("correct"); 
+      } else {
+        alert("incorrect"); 
+      }
+    }
+  buttonSuivant.disabled = true
+  optionButton.addEventListener("click",(event)=>
+    {
+    const optionChoisi = event.target.innerText
+    console.log(optionChoisi)
+    checkAnswer(optionChoisi)
+    buttonSuivant.disabled = false
+    })
+
   })
 }
 // Ajouter un écouteur d'événements pour le bouton "Suivant"
@@ -61,6 +79,7 @@ buttonSuivant.addEventListener('click',() => {
     }
   }
 });
+
 // Sélection des éléments HTML
 const replayButton = document.querySelector('#replay-button')
 //TODO Ajouter le bouton rejouer à votre liste d‘élements
@@ -76,24 +95,4 @@ replayButton.addEventListener('click', () => {
     message.innerHTML=""
 })
   // TODO Cacher le bouton Rejouer et afficher le bouton Suivant
-  // TODO Recharger la première question
-  function checkAnswer() {
-    optionContainer.addEventListener("click",(event)=>
-    {
-    const optionChoisi = event.target.innerText
-    console.log(optionChoisi)
-    if (optionChoisi === currentQuestion.correct_answer) {
-      alert("correct");
-    } else {
-      alert("incorrect");
-    }
-  })
-}
-  checkAnswer()
-
-
-
-
-
-
 
