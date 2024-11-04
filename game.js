@@ -11,13 +11,14 @@ let currentIndex = 0;
 /*
 // Test progress_bar
 const progress_bar = document.querySelector('.progress');
-//progress_bar.style.display = 'none';
+progress_bar.style.display = 'none';
 const updateProgressBar = () => {
   const progressPercentage = (currentIndex / questionsList.length) * 100;
   console.log(progressPercentage)
   progress_bar.style.width = `${progressPercentage}%`;
 };
 */
+
 
 // Créer une fonction qui affciche dynamiquement les questions
 const displayQuestions = (index) => {
@@ -33,10 +34,11 @@ const displayQuestions = (index) => {
     nextButton.disabled = true
 
     // ajouter l'écouteur de click à chaque option pour appeler checkAnswer
-    optionElement.addEventListener('click', () => {
+    optionElement.addEventListener('click', (e) => {
       checkAnswer(option, question.correct_answer);
       nextButton.disabled = false
-    })
+    }); 
+
 });
 //updateProgressBar();
 };
@@ -48,7 +50,7 @@ nextButton.addEventListener('click', () => {
   currentIndex++;
   if (currentIndex < quizZilla.questions.length){
     displayQuestions(currentIndex)
-    //updateProgressBar();
+    updateProgressBar();
   } else {
     questionsElement.innerText = "Plus de question";
     optionsQuestionElement.innerHTML = '';
