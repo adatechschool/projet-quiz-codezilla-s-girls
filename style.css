@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *{
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
@@ -64,12 +65,27 @@ body {
 a:hover {
     color: #F69637;
     transition: all 0.3s ease; 
+=======
+/*
+* {
+    margin: 0;
 }
 
-/*MAIN*/
-.quiz-container{
-margin-bottom: 40px;
+.progress_bar {
+    width: 100%;
+    background-color: #F3F3F3;
+    /*overflow: hidden;
+    transition: all ease-in-out 0.5s;
+>>>>>>> origin
 }
+
+
+.progress {
+    width: 0%;
+    height: 10px;
+    background-color: #4CAF50;
+}
+<<<<<<< HEAD
 .question{
     background-color: #ffffff;
     border-radius: 14px;
@@ -117,3 +133,6 @@ margin-bottom: 40px;
     background-color: rgb(68, 18, 115); /* Couleur de fond au clic */
     transform: scale(0.98); /* Rétrécissement léger */
 }
+=======
+*/
+>>>>>>> origin

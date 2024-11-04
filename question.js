@@ -15,16 +15,22 @@
         text: "Quel est le rôle de HTML ?",
         options: [
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin
           "Dinosaure coloré.",
-          "Un squellette de dinosaure.",
+          "Un squelette de dinosaure.",
           "Dinosaure sans coloré.",
           "Dinosaure dynamique."
+<<<<<<< HEAD
 =======
           "Un dinosaure coloré.",
           "Un squelette de dinosaure.",
           "Un dinosaure sans couleur.",
           "Un dinosaure dynamique."
 >>>>>>> branche_stella
+=======
+>>>>>>> origin
         ],
         correct_answer: "Un squelette de dinosaure."
       },
@@ -34,10 +40,14 @@
           "Dinosaure à gauche.",
           "Dinosaure à droite.",
 <<<<<<< HEAD
+<<<<<<< HEAD
           "Dinosaure au millieu.",
 =======
           "Dinosaure au milieu.",
 >>>>>>> branche_stella
+=======
+          "Dinosaure au milieu.",
+>>>>>>> origin
           "Dinosaure en bas à droite."
         ],
         correct_answer: "Dinosaure au milieu."
@@ -55,27 +65,4 @@
     },
     ]
   };
-  //const premiereQuestion = document.getElementsByClassName('question')
-  /*const premiereQuestion = document.querySelector('.question')
- 
-  //const premiereQuestion = document.querySelector('.question')
-  const optionPremierQuestion = document.querySelector('.options1')
-  const buttonSuivant = document.querySelector('#next-button')
-  const head = document.querySelector('head') 
 
-  //premiereQuestion.innerHTML = ""
-  for(const question of quizZilla.questions) {
-    premiereQuestion.innerHTML = ` ${question.text} `
-
-    optionPremierQuestion.innerHTML = ""
-    for (i= 0;i < question.options.length;i++) {
-  //for(const question of quizZilla.questions) {
-// premiereQuestion.innerHTML = ` ${question.text} `
-    
-    //optionPremierQuestion.innerHTML = ""
-    //for (let i= 0; i < question.options.length; i++) {
-    optionPremierQuestion.innerHTML += `<button> ${question.options[i]} </button>`
-    }
-  }*/
-    //}
- // }
