@@ -1,4 +1,4 @@
-export const quizZilla = {
+ export const quizZilla = {
     questions: [
       {
         text: "À quoi sert une balise <h1> ?",
@@ -14,26 +14,37 @@ export const quizZilla = {
       {
         text: "Quel est le rôle de HTML ?",
         options: [
+<<<<<<< HEAD
           "Dinosaure coloré.",
           "Un squellette de dinosaure.",
           "Dinosaure sans coloré.",
           "Dinosaure dynamique."
+=======
+          "Un dinosaure coloré.",
+          "Un squelette de dinosaure.",
+          "Un dinosaure sans couleur.",
+          "Un dinosaure dynamique."
+>>>>>>> branche_stella
         ],
-        correct_answer: "Un squellette de dinosaure."
+        correct_answer: "Un squelette de dinosaure."
       },
       {
-        text: "À quoi sert la propriété text-align:center?",
+        text: "À quoi sert la propriété text-align:center ?",
         options: [
           "Dinosaure à gauche.",
           "Dinosaure à droite.",
+<<<<<<< HEAD
           "Dinosaure au millieu.",
+=======
+          "Dinosaure au milieu.",
+>>>>>>> branche_stella
           "Dinosaure en bas à droite."
         ],
-        correct_answer: "Dinosaure au millieu."
+        correct_answer: "Dinosaure au milieu."
       },
     
     {
-      text: "Comment changer le coleur de Dinosaure h1 en css en bleu?",
+      text: "Comment changer la couleur d'un dinosaure <h1> en css en bleu?",
       options: [
         "h1{color:blue}",
         "h1{background-color:blue}",
@@ -46,6 +57,8 @@ export const quizZilla = {
   };
   //const premiereQuestion = document.getElementsByClassName('question')
   /*const premiereQuestion = document.querySelector('.question')
+ 
+  //const premiereQuestion = document.querySelector('.question')
   const optionPremierQuestion = document.querySelector('.options1')
   const buttonSuivant = document.querySelector('#next-button')
   const head = document.querySelector('head') 
@@ -56,6 +69,13 @@ export const quizZilla = {
 
     optionPremierQuestion.innerHTML = ""
     for (i= 0;i < question.options.length;i++) {
+  //for(const question of quizZilla.questions) {
+// premiereQuestion.innerHTML = ` ${question.text} `
+    
+    //optionPremierQuestion.innerHTML = ""
+    //for (let i= 0; i < question.options.length; i++) {
     optionPremierQuestion.innerHTML += `<button> ${question.options[i]} </button>`
     }
   }*/
+    //}
+ // }
