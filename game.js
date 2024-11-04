@@ -39,7 +39,7 @@ function loadQuestion(currentQuestionIndex){
     optionButton.innerText = option;
     optionContainer.appendChild(optionButton);
   })
-}
+
   optionsQuestionElement.innerHTML = '';
 
   question.options.forEach( option => {
@@ -54,6 +54,7 @@ function loadQuestion(currentQuestionIndex){
       nextButton.disabled = false
     })
 });
+}
 
 //updateProgressBar();
 // Récupérer le bouton suivant & le button replay
