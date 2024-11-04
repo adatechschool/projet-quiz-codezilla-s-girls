@@ -1,8 +1,8 @@
 import { quizZilla } from './question.js'; // Import des questions
 
 // Récupérer les emplacements pour injecter la question et les options
-const questionsElement = document.querySelector('.question');
-const optionsQuestionElement = document.querySelector('.options');
+const questionContainer = document.querySelector('.question');
+const optionContainer = document.querySelector('.options');
 
 let currentQuestionIndex = 0; // Commence à la première question
 let isSelectedOptionValid = false
