@@ -15,7 +15,7 @@
         text: "Quel est le rôle de HTML ?",
         options: [
           "Dinosaure coloré.",
-          "Un squellette de dinosaure.",
+          "Un squelette de dinosaure.",
           "Dinosaure sans coloré.",
           "Dinosaure dynamique."
         ],
@@ -26,7 +26,7 @@
         options: [
           "Dinosaure à gauche.",
           "Dinosaure à droite.",
-          "Dinosaure au millieu.",
+          "Dinosaure au milieu.",
           "Dinosaure en bas à droite."
         ],
         correct_answer: "Dinosaure au milieu."
@@ -44,27 +44,4 @@
     },
     ]
   };
-  //const premiereQuestion = document.getElementsByClassName('question')
-  /*const premiereQuestion = document.querySelector('.question')
- 
-  //const premiereQuestion = document.querySelector('.question')
-  const optionPremierQuestion = document.querySelector('.options1')
-  const buttonSuivant = document.querySelector('#next-button')
-  const head = document.querySelector('head') 
 
-  //premiereQuestion.innerHTML = ""
-  for(const question of quizZilla.questions) {
-    premiereQuestion.innerHTML = ` ${question.text} `
-
-    optionPremierQuestion.innerHTML = ""
-    for (i= 0;i < question.options.length;i++) {
-  //for(const question of quizZilla.questions) {
-// premiereQuestion.innerHTML = ` ${question.text} `
-    
-    //optionPremierQuestion.innerHTML = ""
-    //for (let i= 0; i < question.options.length; i++) {
-    optionPremierQuestion.innerHTML += `<button> ${question.options[i]} </button>`
-    }
-  }*/
-    //}
- // }
