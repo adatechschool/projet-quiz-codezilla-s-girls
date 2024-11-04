@@ -1,3 +1,4 @@
+
 import {quizZilla} from './question.js' // Import des questions
 
 // Récupérer les emplacements pour injecter la question et les options
@@ -77,6 +78,7 @@ buttonSuivant.addEventListener('click',() => {
     }
   }
 });
+
 // Sélection des éléments HTML
 const replayButton = document.querySelector('#replay-button')
 //TODO Ajouter le bouton rejouer à votre liste d‘élements

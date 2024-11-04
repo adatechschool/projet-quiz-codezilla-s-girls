@@ -1,7 +1,9 @@
-export const quizZilla = {
+ const quizZilla = {
     questions: [
       {
+
         text: "À quoi sert une balise <h1> ?",
+
         options: [
           "Écrire un gros titre important",
           "Écrire un petit titre mignon",
@@ -55,7 +57,7 @@ export const quizZilla = {
     premiereQuestion.innerHTML = ` ${question.text} `
 
     optionPremierQuestion.innerHTML = ""
-    for (i= 0;i < question.options.length;i++) {
+    for (let i= 0; i < question.options.length; i++) {
     optionPremierQuestion.innerHTML += `<button> ${question.options[i]} </button>`
     }
   }*/
