@@ -34,10 +34,26 @@ function loadQuestion(currentQuestionIndex){
     buttonSuivant.disabled = false;
     
     // Désactivé les autres options lorsque une option est choisie
-    const allOptions = optionButton.querySelectorAll('button');
+    const allOptions = optionContainer.querySelectorAll('button');
     allOptions.forEach(btn => {
       btn.disabled = true;
       console.log('Options désactivée :', btn.innerText);
+
+      //Réactiver le bouton sélectionner 
+      event.target.disabled = false;
+
+      // Ajouter une bordure à la bonne réponse 
+      if (optionChoisi === currentQuestion.correct_answer){
+        event.target.style.border = "5px solid green"
+      } else {
+        event.target.style.border = "5px solid red"
+      }
+
+      // option cliquable qu'une seule fois
+      event.target.disabled = true;
+
+      // bouton suivant qui s'active une fois qu'une option est choisie
+      buttonSuivant.disabled = false;
     });
     });
   });
@@ -49,11 +65,6 @@ const replayButton = document.querySelector('#replay-button');
 
 buttonSuivant.addEventListener('click',() => {
   currentQuestionIndex++;
-  /*
-  if (isSelectedOptionValid) {
-        pointCount++
-        score.innerHTML =`Score total: ${pointCount}` 
-  };*/
 
   // Vérifier s'il reste des questions
   if (currentQuestionIndex < quizZilla.questions.length) {
@@ -97,7 +108,7 @@ function checkAnswer(optionChoisi, correct_answer) {
   isSelectedOptionValid = optionChoisi === currentQuestion.correct_answer
   if (optionChoisi === correct_answer) {
     pointCount++;
-    console.log('Bonne réponse')
+    console.log('Bonne réponse');
     //alert("correct"); 
   } else {
     //alert("incorrect"); 
