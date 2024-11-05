@@ -26,7 +26,7 @@ function loadQuestion(currentQuestionIndex){
   optionContainer.innerHTML = '';
   
   currentQuestion.options.forEach(option => {
-    const optionButton = document.createElement('button');
+    const optionButton = document.createElement('button'); 
     optionButton.classList.add('option-button')
     optionButton.innerText = option; 
     optionContainer.appendChild(optionButton);
