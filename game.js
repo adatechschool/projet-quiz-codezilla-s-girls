@@ -51,8 +51,41 @@ buttonSuivant.addEventListener('click',() => {
     score.innerHTML =`Score total: ${pointCount}`
     if (pointCount === quizZilla.questions.length){
       message.innerText = "Bien joué !!!"
+      var defaults = {
+        spread: 360,
+        ticks: 50,
+        gravity: 0,
+        decay: 0.94,
+        startVelocity: 30,
+        colors: ['FFE400', 'FFBD00', 'E89400', 'FFCA6C', 'FDFFB8']
+      };
+      
+      function shoot() {
+        confetti({
+          ...defaults,
+          particleCount: 40,
+          scalar: 1.2,
+          shapes: ['star']
+        });
+      
+        confetti({
+          ...defaults,
+          particleCount: 10,
+          scalar: 0.75,
+          shapes: ['circle']
+        });
+      }
+      
+      setTimeout(shoot, 0);
+      setTimeout(shoot, 100);
+      setTimeout(shoot, 200);
     } else if (pointCount >= 0.5*quizZilla.questions.length){
       message.innerText = "Pas mal !"
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
     } else {
       message.innerText = "Recommence"
     }
