@@ -76,6 +76,7 @@ a:hover {
     text-align: center;
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
 }
+
 .options{
     display: grid;
     grid-template-columns: 1fr 1fr; /* 2 colonnes */
@@ -92,10 +93,34 @@ a:hover {
     border-radius: 14px;
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
 }
+
+#dinoImage {
+    width: 400px;
+    padding: 40px;
+}
+
+.display-end {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /*padding: 15px;*/
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 20px;
+    font-family: BalooBhai, sans-serif;
+    font-size: 10px;
+    width: 760px;
+    margin-bottom: 50px;
+    text-align: center;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
 #next-button, #replay-button {
     background-color: #ea923a; 
     color: #ffffff; 
     margin-top: 70px;
+    margin-bottom: 50px;
     border: none; 
     padding: 10px 20px; 
     font-size: 20px; 
@@ -104,6 +129,14 @@ a:hover {
     cursor: pointer; 
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
+
+.box-buttonReplay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
 #next-button:hover, #replay-button:hover {
     background-color: #F69637; /* Couleur de fond au survol */
     transform: scale(1.05); /* Agrandissement léger */
@@ -112,3 +145,7 @@ a:hover {
     background-color: rgb(68, 18, 115); /* Couleur de fond au clic */
     transform: scale(0.98); /* Rétrécissement léger */
 }
+
+.display-end {
+    font-size: 30px;
+}    

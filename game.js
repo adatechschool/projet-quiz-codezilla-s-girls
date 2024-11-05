@@ -3,10 +3,12 @@ import { quizZilla } from './question.js';
 // Récupérer les emplacements pour injecter la question et les options
 const questionContainer = document.querySelector('.question');
 const optionContainer = document.querySelector('.options');
+const dinoImage = document.querySelector('#dinoImage');
 
-let currentQuestionIndex = 0; 
+let currentQuestionIndex = 0;
 
-const message = document.querySelector('#message')
+const message = document.querySelector('#message');
+
 
 function loadQuestion(currentQuestionIndex){
   const currentQuestion = quizZilla.questions[currentQuestionIndex];
@@ -20,6 +22,7 @@ function loadQuestion(currentQuestionIndex){
     optionButton.innerText = option; 
     optionContainer.appendChild(optionButton);
     buttonSuivant.disabled = true;
+    dinoImage.style.display = 'none';
 
     // ajouter l'écouteur de click à chaque option pour appeler checkAnswer
     optionButton.addEventListener("click", (event) => {
@@ -31,7 +34,7 @@ function loadQuestion(currentQuestionIndex){
     const allOptions = optionContainer.querySelectorAll('button');
     allOptions.forEach(btn => {
       btn.disabled = true;
-      console.log('Options désactivée :', btn.innerText);
+      //console.log('Options désactivée :', btn.innerText);
 
       // Ajouter une bordure à la bonne réponse 
       if (optionChoisi === currentQuestion.correct_answer){
@@ -64,9 +67,11 @@ buttonSuivant.addEventListener('click',() => {
     // Si plus de questions, indiquer la fin du quiz
     questionContainer.innerText = 'Fin du quiz';
     optionContainer.innerHTML = ''; 
+    dinoImage.src = "images/dinoDingo.png" ;
+    dinoImage.style.display = 'block'
     buttonSuivant.style.display = 'none'; 
     replayButton.style.display = "inline-block"
-    score.innerHTML =`Score total: ${pointCount}`
+    score.innerHTML =`Tu as un score total de  :  ${pointCount}`
     if (pointCount === quizZilla.questions.length){
       message.innerText = "Bien joué !!!"
     } else if (pointCount >= 0.5*quizZilla.questions.length){
@@ -99,11 +104,7 @@ function checkAnswer(optionChoisi, correct_answer) {
   if (optionChoisi === correct_answer) {
     pointCount++;
     console.log('Bonne réponse');
-    //alert("correct"); 
   } else {
-    //alert("incorrect"); 
     console.log('Mauvaise réponse')
   }
-
-  return score.innerText = `Votre score est de ${pointCount}`
 }; 
