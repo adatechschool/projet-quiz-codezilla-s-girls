@@ -105,4 +105,8 @@ function checkAnswer(optionChoisi, correct_answer) {
   }
 
   return score.innerText = `Votre score est de ${pointCount}`
+<<<<<<< HEAD
 }
+=======
+}; 
+>>>>>>> main

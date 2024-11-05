@@ -1,7 +1,12 @@
-/*
-* {
+*{
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     margin: 0;
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
     padding: 0;
 }
 /* RÈGLES GÉNÉRALES */
@@ -63,11 +68,6 @@ body {
 a:hover {
     color: #F69637;
     transition: all 0.3s ease; 
-}
-
-/*MAIN*/
-.quiz-container{
-margin-bottom: 40px;
 }
 .question{
     background-color: #ffffff;
