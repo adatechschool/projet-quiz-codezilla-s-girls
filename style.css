@@ -3,10 +3,6 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     margin: 0;
-<<<<<<< HEAD
-
-=======
->>>>>>> main
     padding: 0;
 }
 /* RÈGLES GÉNÉRALES */
@@ -51,7 +47,7 @@ body {
     font-weight: 800;
 }
 .navbar li a{
-    margin-left: 30px;
+    padding: 30px;
     font-size: 20px;
 }
 .navbar li:nth-child(3n) a{ /*background orange profil*/
@@ -80,6 +76,13 @@ a:hover {
     text-align: center;
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
 }
+.containerScoreButtons{
+    display: flex;
+    gap: 20px; 
+    align-items: center; 
+    justify-content: space-between; 
+    padding: 10px;
+}
 .options{
     display: grid;
     grid-template-columns: 1fr 1fr; /* 2 colonnes */
@@ -92,14 +95,29 @@ a:hover {
     font-size: 20px;
     background-color: white;
     border: none;
-    /*content: url(images/dino-rouge.png);*/
     border-radius: 14px;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
+}
+#score-container, #button-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#score{
+    margin-top: 50px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 9px;
+    font-family: BalooBhai, sans-serif;
+    font-size: 20px;
+    width: 620px;
+    margin-bottom: 50px;
+    text-align: center;
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
 }
 #next-button, #replay-button {
     background-color: #ea923a; 
     color: #ffffff; 
-    margin-top: 70px;
     border: none; 
     padding: 10px 20px; 
     font-size: 20px; 
@@ -116,3 +134,26 @@ a:hover {
     background-color: rgb(68, 18, 115); /* Couleur de fond au clic */
     transform: scale(0.98); /* Rétrécissement léger */
 }
+.menu {
+    list-style: none;
+    padding: 0;
+    display: flex;
+  }
+  
+  .menu li {
+    position: relative; /* Permet de positionner le sous-menu */
+  }
+  .submenu {
+    display: none;    /*Masquer le sous-menu par défaut */
+    position: absolute;
+    background-color: #ffffff;
+  }
+  
+  .menu li:hover .submenu {
+    display: block; /* Afficher le sous-menu au survol */
+  }
+  
+  .submenu li {
+    padding: 10px;
+  }
+  

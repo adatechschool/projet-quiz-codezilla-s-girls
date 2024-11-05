@@ -6,10 +6,6 @@ const optionContainer = document.querySelector('.options');
 
 let currentQuestionIndex = 0; 
 
-let currentQuestion = quizZilla.questions[currentQuestionIndex];
-
-let isSelectedOptionValid = false
-
 const message = document.querySelector('#message')
 
 function loadQuestion(currentQuestionIndex){
@@ -17,8 +13,6 @@ function loadQuestion(currentQuestionIndex){
   questionContainer.innerText = currentQuestion.text;
 
   optionContainer.innerHTML = '';
-
-  isSelectedOptionValid = false;
   
   currentQuestion.options.forEach(option => {
     const optionButton = document.createElement('button');
@@ -34,10 +28,23 @@ function loadQuestion(currentQuestionIndex){
     buttonSuivant.disabled = false;
     
     // Désactivé les autres options lorsque une option est choisie
-    const allOptions = optionButton.querySelectorAll('button');
+    const allOptions = optionContainer.querySelectorAll('button');
     allOptions.forEach(btn => {
       btn.disabled = true;
       console.log('Options désactivée :', btn.innerText);
+
+      // Ajouter une bordure à la bonne réponse 
+      if (optionChoisi === currentQuestion.correct_answer){
+        event.target.style.border = "5px solid green"
+      } else {
+        event.target.style.border = "5px solid red"
+      }
+
+      // option cliquable qu'une seule fois
+      event.target.disabled = true;
+
+      // bouton suivant qui s'active une fois qu'une option est choisie
+      buttonSuivant.disabled = false;
     });
     });
   });
@@ -49,11 +56,6 @@ const replayButton = document.querySelector('#replay-button');
 
 buttonSuivant.addEventListener('click',() => {
   currentQuestionIndex++;
-  /*
-  if (isSelectedOptionValid) {
-        pointCount++
-        score.innerHTML =`Score total: ${pointCount}` 
-  };*/
 
   // Vérifier s'il reste des questions
   if (currentQuestionIndex < quizZilla.questions.length) {
@@ -67,12 +69,46 @@ buttonSuivant.addEventListener('click',() => {
     score.innerHTML =`Score total: ${pointCount}`
     if (pointCount === quizZilla.questions.length){
       message.innerText = "Bien joué !!!"
+      var defaults = {
+        spread: 360,
+        ticks: 50,
+        gravity: 0,
+        decay: 0.94,
+        startVelocity: 30,
+        colors: ['FFE400', 'FFBD00', 'E89400', 'FFCA6C', 'FDFFB8']
+      };
+      
+      function shoot() {
+        confetti({
+          ...defaults,
+          particleCount: 40,
+          scalar: 1.2,
+          shapes: ['star']
+        });
+      
+        confetti({
+          ...defaults,
+          particleCount: 10,
+          scalar: 0.75,
+          shapes: ['circle']
+        });
+      }
+      
+      setTimeout(shoot, 0);
+      setTimeout(shoot, 100);
+      setTimeout(shoot, 200);
     } else if (pointCount >= 0.5*quizZilla.questions.length){
       message.innerText = "Pas mal !"
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
     } else {
       message.innerText = "Recommence"
     }
   }
+  
 });
 
 // Fonction pour réinitialiser le quiz
@@ -94,19 +130,14 @@ const score = document.querySelector('#score');
 let pointCount = 0
 
 function checkAnswer(optionChoisi, correct_answer) {
-  isSelectedOptionValid = optionChoisi === currentQuestion.correct_answer
   if (optionChoisi === correct_answer) {
     pointCount++;
-    console.log('Bonne réponse')
+    console.log('Bonne réponse');
     //alert("correct"); 
   } else {
     //alert("incorrect"); 
     console.log('Mauvaise réponse')
   }
 
-  return score.innerText = `Votre score est de ${pointCount}`
-<<<<<<< HEAD
-}
-=======
+  return score.innerText = `Ton score est de ${pointCount}`
 }; 
->>>>>>> main
