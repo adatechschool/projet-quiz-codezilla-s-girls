@@ -3,10 +3,21 @@ import { quizZilla } from './question.js';
 // Récupérer les emplacements pour injecter la question et les options
 const questionContainer = document.querySelector('.question');
 const optionContainer = document.querySelector('.options');
+const dinoImage = document.querySelector('#dinoImage');
 
-let currentQuestionIndex = 0; 
+let currentQuestionIndex = 0;
 
-const message = document.querySelector('#message')
+const message = document.querySelector('#message');
+const displayEnd = document.querySelector('.display-end');
+
+// Test progress_bar
+const progress_bar = document.querySelector('.progress');
+progress_bar.style.display = 'block';
+const updateProgressBar = () => {
+  const progressPercentage = (currentQuestionIndex / quizZilla.questions.length) * 100;
+  console.log(progressPercentage)
+  progress_bar.style.width = `${progressPercentage}%`;
+};
 
 function loadQuestion(currentQuestionIndex){
   const currentQuestion = quizZilla.questions[currentQuestionIndex];
@@ -17,21 +28,29 @@ function loadQuestion(currentQuestionIndex){
   currentQuestion.options.forEach(option => {
     const optionButton = document.createElement('button');
     optionButton.classList.add('option-button')
-    optionButton.innerText = option; 
+    //optionButton.innerText = option; 
+    optionButton.innerHTML = `<img src = ${option.image} class='dyno'/><p></p>`
     optionContainer.appendChild(optionButton);
     buttonSuivant.disabled = true;
+    const label = optionButton.querySelector('p');
+    label.innerText = option.text
+    //const imageView = optionButton.querySelector('img');
+    //imageView.innerHTML = `<img src = '${option.image}' class='dyno'/><p></p>`;
+    dinoImage.style.display = 'none';
+    displayEnd.style.display = 'none'
 
     // ajouter l'écouteur de click à chaque option pour appeler checkAnswer
     optionButton.addEventListener("click", (event) => {
-    const optionChoisi = event.target.innerText;
+    const optionChoisi = event.target.querySelector('p').innerText;
     checkAnswer(optionChoisi, currentQuestion.correct_answer);
     buttonSuivant.disabled = false;
+    displayEnd.style.display = 'flex';
     
     // Désactivé les autres options lorsque une option est choisie
     const allOptions = optionContainer.querySelectorAll('button');
     allOptions.forEach(btn => {
       btn.disabled = true;
-      console.log('Options désactivée :', btn.innerText);
+
 
       // Ajouter une bordure à la bonne réponse 
       if (optionChoisi === currentQuestion.correct_answer){
@@ -48,8 +67,8 @@ function loadQuestion(currentQuestionIndex){
     });
     });
   });
+  updateProgressBar();
 };
-
 // Récupérer le bouton suivant & le bouton replay
 const buttonSuivant = document.querySelector('#next-button');
 const replayButton = document.querySelector('#replay-button');
@@ -60,13 +79,19 @@ buttonSuivant.addEventListener('click',() => {
   // Vérifier s'il reste des questions
   if (currentQuestionIndex < quizZilla.questions.length) {
     loadQuestion(currentQuestionIndex)
+    displayEnd.style.display = 'block';
+    updateProgressBar();
+    console.log('j affiche le score', displayEnd)
   } else {
     // Si plus de questions, indiquer la fin du quiz
     questionContainer.innerText = 'Fin du quiz';
     optionContainer.innerHTML = ''; 
+    dinoImage.src = "images/dinoDingo.png" ;
+    dinoImage.style.display = 'block'
     buttonSuivant.style.display = 'none'; 
-    replayButton.style.display = "inline-block"
-    score.innerHTML =`Score total: ${pointCount}`
+    replayButton.style.display = "inline-block";
+    progress_bar.style.width = '100%'
+    score.innerHTML =`Tu as un score total de  :  ${pointCount}`
     if (pointCount === quizZilla.questions.length){
       message.innerText = "Bien joué !!!"
       var defaults = {
@@ -120,24 +145,22 @@ replayButton.addEventListener('click', () => {
     score.innerHTML="";
     pointCount = 0;
     message.innerHTML="";
+    dinoImage.style.display = 'none';
+    updateProgressBar();
 });
-
 loadQuestion(currentQuestionIndex);
-
 // Affichage du score
 const score = document.querySelector('#score');
 // Système de points
 let pointCount = 0
-
 function checkAnswer(optionChoisi, correct_answer) {
   if (optionChoisi === correct_answer) {
     pointCount++;
-    console.log('Bonne réponse');
-    //alert("correct"); 
-  } else {
-    //alert("incorrect"); 
+
+    console.log('Bonne réponse')
+  }else{
     console.log('Mauvaise réponse')
   }
 
-  return score.innerText = `Ton score est de ${pointCount}`
-}; 
+  return score.innerText = `Votre score est de ${pointCount}`
+};
