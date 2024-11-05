@@ -29,14 +29,8 @@ function loadQuestion(currentQuestionIndex) {
   currentQuestion.options.forEach(option => {
     const optionButton = document.createElement('button'); 
     optionButton.classList.add('option-button')
-    //optionButton.innerText = option; 
     optionButton.innerHTML = `<img src = ${option.image} class='dyno'/><p>${option.text}</p>`
     fragment.appendChild(optionButton);
-  
-  //const label = optionButton.querySelector('p');
-  //label.innerText = option.text
-  //const imageView = optionButton.querySelector('img');
-  //imageView.innerHTML = `<img src = '${option.image}' class='dyno'/><p></p>`;
 
   // ajouter l'écouteur de click à chaque option pour appeler checkAnswer
   optionButton.addEventListener("click", (event) => {
@@ -52,7 +46,6 @@ function loadQuestion(currentQuestionIndex) {
     const allOptions = optionContainer.querySelectorAll('button');
     allOptions.forEach(btn => {
       btn.disabled = true;
-      //console.log('Options désactivée :', btn.innerText);
       if (btn === target) {
         // Ajouter une bordure à la bonne réponse 
         if (optionChoisi === currentQuestion.correct_answer) {
