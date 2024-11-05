@@ -6,10 +6,6 @@ const optionContainer = document.querySelector('.options');
 
 let currentQuestionIndex = 0; 
 
-let currentQuestion = quizZilla.questions[currentQuestionIndex];
-
-let isSelectedOptionValid = false
-
 const message = document.querySelector('#message')
 
 function loadQuestion(currentQuestionIndex){
@@ -17,8 +13,6 @@ function loadQuestion(currentQuestionIndex){
   questionContainer.innerText = currentQuestion.text;
 
   optionContainer.innerHTML = '';
-
-  isSelectedOptionValid = false;
   
   currentQuestion.options.forEach(option => {
     const optionButton = document.createElement('button');
@@ -38,9 +32,6 @@ function loadQuestion(currentQuestionIndex){
     allOptions.forEach(btn => {
       btn.disabled = true;
       console.log('Options désactivée :', btn.innerText);
-
-      //Réactiver le bouton sélectionner 
-      event.target.disabled = false;
 
       // Ajouter une bordure à la bonne réponse 
       if (optionChoisi === currentQuestion.correct_answer){
@@ -105,7 +96,6 @@ const score = document.querySelector('#score');
 let pointCount = 0
 
 function checkAnswer(optionChoisi, correct_answer) {
-  isSelectedOptionValid = optionChoisi === currentQuestion.correct_answer
   if (optionChoisi === correct_answer) {
     pointCount++;
     console.log('Bonne réponse');
