@@ -8,7 +8,7 @@ const dinoImage = document.querySelector('#dinoImage');
 let currentQuestionIndex = 0;
 
 const message = document.querySelector('#message');
-
+const displayEnd = document.querySelector('.display-end');
 
 function loadQuestion(currentQuestionIndex){
   const currentQuestion = quizZilla.questions[currentQuestionIndex];
@@ -23,12 +23,14 @@ function loadQuestion(currentQuestionIndex){
     optionContainer.appendChild(optionButton);
     buttonSuivant.disabled = true;
     dinoImage.style.display = 'none';
+    displayEnd.style.display = 'none'
 
     // ajouter l'écouteur de click à chaque option pour appeler checkAnswer
     optionButton.addEventListener("click", (event) => {
     const optionChoisi = event.target.innerText;
     checkAnswer(optionChoisi, currentQuestion.correct_answer);
     buttonSuivant.disabled = false;
+    displayEnd.style.display = 'flex';
     
     // Désactivé les autres options lorsque une option est choisie
     const allOptions = optionContainer.querySelectorAll('button');
@@ -63,6 +65,8 @@ buttonSuivant.addEventListener('click',() => {
   // Vérifier s'il reste des questions
   if (currentQuestionIndex < quizZilla.questions.length) {
     loadQuestion(currentQuestionIndex)
+    displayEnd.style.display = 'block'
+    console.log('j affiche le score', displayEnd)
   } else {
     // Si plus de questions, indiquer la fin du quiz
     questionContainer.innerText = 'Fin du quiz';
@@ -91,6 +95,7 @@ replayButton.addEventListener('click', () => {
     score.innerHTML="";
     pointCount = 0;
     message.innerHTML="";
+    dinoImage.style.display = 'none';
 });
 
 loadQuestion(currentQuestionIndex);
@@ -107,4 +112,6 @@ function checkAnswer(optionChoisi, correct_answer) {
   } else {
     console.log('Mauvaise réponse')
   }
+
+  return score.innerText = `Votre score est de ${pointCount}`
 }; 
