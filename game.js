@@ -43,12 +43,6 @@ const replayButton = document.querySelector('#replay-button');
 
 buttonSuivant.addEventListener('click',() => {
   currentQuestionIndex++;
-  /*
-  if (isSelectedOptionValid) {
-        pointCount++
-        score.innerHTML =`Score total: ${pointCount}` 
-  };*/
-
   // Vérifier s'il reste des questions
   if (currentQuestionIndex < quizZilla.questions.length) {
     loadQuestion(currentQuestionIndex)
