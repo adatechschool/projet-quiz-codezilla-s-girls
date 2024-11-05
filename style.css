@@ -55,8 +55,9 @@ body {
     font-weight: 800;
 }
 
-.navbar li a {
-    margin-left: 30px;
+.navbar li a{
+    padding: 30px;
+
     font-size: 20px;
 }
 
@@ -92,7 +93,15 @@ a:hover {
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.options {
+.containerScoreButtons{
+    display: flex;
+    gap: 20px; 
+    align-items: center; 
+    justify-content: space-between; 
+    padding: 10px;
+}
+.options{
+
     display: grid;
     grid-template-columns: 1fr 1fr;
     /* 2 colonnes */
@@ -108,7 +117,6 @@ a:hover {
     font-size: 20px;
     background-color: white;
     border: none;
-    /*content: url(images/dino-rouge.png);*/
     border-radius: 14px;
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
 }
@@ -130,10 +138,12 @@ a:hover {
     font-family: BalooBhai, sans-serif;
     font-size: 10px;
     width: 760px;
+
     margin-bottom: 50px;
     text-align: center;
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
 }
+
 
 .button-container {
     display: flex;
@@ -156,6 +166,7 @@ a:hover {
     padding: 10px 20px;
     font-size: 20px;
     font-family: BalooBhai, sans-serif;
+
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
@@ -179,6 +190,31 @@ a:hover {
     height: 170px;
     width: 170px;
 }
+
+.menu {
+    list-style: none;
+    padding: 0;
+    display: flex;
+  }
+  
+  .menu li {
+    position: relative; /* Permet de positionner le sous-menu */
+  }
+  .submenu {
+    display: none;    /*Masquer le sous-menu par défaut */
+    position: absolute;
+    background-color: #ffffff;
+  }
+  
+  .menu li:hover .submenu {
+    display: block; /* Afficher le sous-menu au survol */
+  }
+  
+  .submenu li {
+    padding: 10px;
+  }
+  
+
 
 #next-button:active,
 #replay-button:active {
@@ -215,3 +251,4 @@ a:hover {
     max-width: 600px;
     margin: 0 auto;
 }
+

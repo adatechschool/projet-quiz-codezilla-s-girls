@@ -50,7 +50,7 @@ function loadQuestion(currentQuestionIndex){
     const allOptions = optionContainer.querySelectorAll('button');
     allOptions.forEach(btn => {
       btn.disabled = true;
-      //console.log('Options désactivée :', btn.innerText);
+
 
       // Ajouter une bordure à la bonne réponse 
       if (optionChoisi === currentQuestion.correct_answer){
@@ -75,6 +75,7 @@ const replayButton = document.querySelector('#replay-button');
 
 buttonSuivant.addEventListener('click',() => {
   currentQuestionIndex++;
+
   // Vérifier s'il reste des questions
   if (currentQuestionIndex < quizZilla.questions.length) {
     loadQuestion(currentQuestionIndex)
@@ -132,6 +133,7 @@ buttonSuivant.addEventListener('click',() => {
       message.innerText = "Recommence"
     }
   }
+  
 });
 
 // Fonction pour réinitialiser le quiz
@@ -154,6 +156,7 @@ let pointCount = 0
 function checkAnswer(optionChoisi, correct_answer) {
   if (optionChoisi === correct_answer) {
     pointCount++;
+
     console.log('Bonne réponse')
   }else{
     console.log('Mauvaise réponse')
