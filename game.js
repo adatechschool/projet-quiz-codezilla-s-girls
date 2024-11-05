@@ -6,9 +6,7 @@ const optionContainer = document.querySelector('.options');
 
 let currentQuestionIndex = 0; 
 
-let currentQuestion = quizZilla.questions[currentQuestionIndex];
-
-let isSelectedOptionValid = false
+//let currentQuestion = quizZilla.questions[currentQuestionIndex];
 
 const message = document.querySelector('#message')
 
@@ -17,28 +15,24 @@ function loadQuestion(currentQuestionIndex){
   questionContainer.innerText = currentQuestion.text;
 
   optionContainer.innerHTML = '';
-
-  isSelectedOptionValid = false;
   
   currentQuestion.options.forEach(option => {
     const optionButton = document.createElement('button');
     optionButton.classList.add('option-button')
-    optionButton.innerText = option; 
+    //optionButton.innerText = option; 
+    optionButton.innerHTML = "<image src='images/dino-bleu.png' class='dyno'/><p></p>";
     optionContainer.appendChild(optionButton);
     buttonSuivant.disabled = true;
-
+    const label = optionButton.querySelector('p');
+    label.innerText = option
+    const imageView = optionButton.querySelector('image');
     // ajouter l'écouteur de click à chaque option pour appeler checkAnswer
     optionButton.addEventListener("click", (event) => {
-    const optionChoisi = event.target.innerText;
+    const optionChoisi = event.target.querySelector('p').innerText;
     checkAnswer(optionChoisi, currentQuestion.correct_answer);
     buttonSuivant.disabled = false;
-    
     // Désactivé les autres options lorsque une option est choisie
-    const allOptions = optionButton.querySelectorAll('button');
-    allOptions.forEach(btn => {
-      btn.disabled = true;
-      console.log('Options désactivée :', btn.innerText);
-    });
+    disableAllOptions();
     });
   });
 };
@@ -94,7 +88,6 @@ const score = document.querySelector('#score');
 let pointCount = 0
 
 function checkAnswer(optionChoisi, correct_answer) {
-  isSelectedOptionValid = optionChoisi === currentQuestion.correct_answer
   if (optionChoisi === correct_answer) {
     pointCount++;
     console.log('Bonne réponse')
@@ -106,3 +99,10 @@ function checkAnswer(optionChoisi, correct_answer) {
 
   return score.innerText = `Votre score est de ${pointCount}`
 }; 
+function disableAllOptions (){
+  const allOptions = document.querySelectorAll('.option-button');
+    allOptions.forEach(btn => {
+      btn.disabled = true;
+      console.log('Options désactivée :', btn.innerText);
+    });
+}
