@@ -3,12 +3,8 @@ import { quizZilla } from './question.js';
 // Récupérer les emplacements pour injecter la question et les options
 const questionContainer = document.querySelector('.question');
 const optionContainer = document.querySelector('.options');
-
-let currentQuestionIndex = 0; 
-
-//let currentQuestion = quizZilla.questions[currentQuestionIndex];
-
 const message = document.querySelector('#message')
+let currentQuestionIndex = 0;
 
 function loadQuestion(currentQuestionIndex){
   const currentQuestion = quizZilla.questions[currentQuestionIndex];
@@ -20,12 +16,13 @@ function loadQuestion(currentQuestionIndex){
     const optionButton = document.createElement('button');
     optionButton.classList.add('option-button')
     //optionButton.innerText = option; 
-    optionButton.innerHTML = "<image src='images/dino-bleu.png' class='dyno'/><p></p>";
+    optionButton.innerHTML = `<img src = ${option.image} class='dyno'/><p></p>`
     optionContainer.appendChild(optionButton);
     buttonSuivant.disabled = true;
     const label = optionButton.querySelector('p');
-    label.innerText = option
-    const imageView = optionButton.querySelector('image');
+    label.innerText = option.text
+    //const imageView = optionButton.querySelector('img');
+    //imageView.innerHTML = `<img src = '${option.image}' class='dyno'/><p></p>`;
     // ajouter l'écouteur de click à chaque option pour appeler checkAnswer
     optionButton.addEventListener("click", (event) => {
     const optionChoisi = event.target.querySelector('p').innerText;
@@ -36,7 +33,6 @@ function loadQuestion(currentQuestionIndex){
     });
   });
 };
-
 // Récupérer le bouton suivant & le bouton replay
 const buttonSuivant = document.querySelector('#next-button');
 const replayButton = document.querySelector('#replay-button');
@@ -73,21 +69,16 @@ replayButton.addEventListener('click', () => {
     pointCount = 0;
     message.innerHTML="";
 });
-
 loadQuestion(currentQuestionIndex);
-
 // Affichage du score
 const score = document.querySelector('#score');
 // Système de points
 let pointCount = 0
-
 function checkAnswer(optionChoisi, correct_answer) {
   if (optionChoisi === correct_answer) {
     pointCount++;
     console.log('Bonne réponse')
-    //alert("correct"); 
-  } else {
-    //alert("incorrect"); 
+  }else{
     console.log('Mauvaise réponse')
   }
 
