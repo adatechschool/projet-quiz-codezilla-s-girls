@@ -83,6 +83,7 @@ const replayButton = document.querySelector('#replay-button');
 
 buttonSuivant.addEventListener('click', () => {
   currentQuestionIndex++;
+
   // Vérifier s'il reste des questions
   if (currentQuestionIndex < quizZilla.questions.length) {
     loadQuestion(currentQuestionIndex)
@@ -140,6 +141,7 @@ buttonSuivant.addEventListener('click', () => {
       message.innerText = "Recommence"
     }
   }
+  
 });
 
 // Fonction pour réinitialiser le quiz
@@ -162,6 +164,7 @@ let pointCount = 0
 function checkAnswer(optionChoisi, correct_answer) {
   if (optionChoisi === correct_answer) {
     pointCount++;
+
     console.log('Bonne réponse')
   } else {
     console.log('Mauvaise réponse')
