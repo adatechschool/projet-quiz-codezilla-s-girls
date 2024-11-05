@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="style.css">
 <script type="module" src="question.js" defer></script>
 <script type="module" src="game.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 </head>
 
 <body>
@@ -16,8 +17,13 @@
 
                 <div>
                     <nav>
-                        <ul class="navbar">
-                            <li><a href="/">Cours</a></li>
+                        <ul class="navbar menu">
+                            <li><a href="/">Cours</a>
+								<ul class="submenu">
+									<li><a href="#">HTML/CSS</a></li>
+									<li><a href="#">Javascript</a></li>
+								</ul>
+							</li>
                             <li><a href="#">Exercices</a></li>
                             <li><a href="#">Profil</a></li>
                         </ul>
@@ -35,6 +41,7 @@
 		<div class="options"></div>	
 		<img id="dinoImage" src="" alt="Dino Dingo Image" style="display: none;">
 		<!-- Prévois déjà le design du bouton "suivant" pour passer à la prochaine question -->
+
 		 <div class="button-container">
 		  <div class="display-end">
 		  	<p id =score></p>
@@ -44,8 +51,8 @@
 		  <div class="box-buttonReplay">
 		  	<button id="replay-button" style="display: none;">Rejouer</button> 
 		  </div>
+
 		</div>
-		<div id="score"></div>
 	</div>
 	</main>
 </body>
