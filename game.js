@@ -10,6 +10,15 @@ let currentQuestionIndex = 0;
 const message = document.querySelector('#message');
 const displayEnd = document.querySelector('.display-end');
 
+// Test progress_bar
+const progress_bar = document.querySelector('.progress');
+progress_bar.style.display = 'block';
+const updateProgressBar = () => {
+  const progressPercentage = (currentQuestionIndex / quizZilla.questions.length) * 100;
+  console.log(progressPercentage)
+  progress_bar.style.width = `${progressPercentage}%`;
+};
+
 function loadQuestion(currentQuestionIndex){
   const currentQuestion = quizZilla.questions[currentQuestionIndex];
   questionContainer.innerText = currentQuestion.text;
@@ -53,6 +62,7 @@ function loadQuestion(currentQuestionIndex){
     });
     });
   });
+  updateProgressBar();
 };
 
 // Récupérer le bouton suivant & le bouton replay
@@ -65,7 +75,8 @@ buttonSuivant.addEventListener('click',() => {
   // Vérifier s'il reste des questions
   if (currentQuestionIndex < quizZilla.questions.length) {
     loadQuestion(currentQuestionIndex)
-    displayEnd.style.display = 'block'
+    displayEnd.style.display = 'block';
+    updateProgressBar();
     console.log('j affiche le score', displayEnd)
   } else {
     // Si plus de questions, indiquer la fin du quiz
@@ -74,7 +85,8 @@ buttonSuivant.addEventListener('click',() => {
     dinoImage.src = "images/dinoDingo.png" ;
     dinoImage.style.display = 'block'
     buttonSuivant.style.display = 'none'; 
-    replayButton.style.display = "inline-block"
+    replayButton.style.display = "inline-block";
+    progress_bar.style.width = '100%'
     score.innerHTML =`Tu as un score total de  :  ${pointCount}`
     if (pointCount === quizZilla.questions.length){
       message.innerText = "Bien joué !!!"
@@ -96,6 +108,7 @@ replayButton.addEventListener('click', () => {
     pointCount = 0;
     message.innerHTML="";
     dinoImage.style.display = 'none';
+    updateProgressBar();
 });
 
 loadQuestion(currentQuestionIndex);
