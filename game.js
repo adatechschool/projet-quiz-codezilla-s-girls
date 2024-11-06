@@ -24,6 +24,7 @@ function loadQuestion(currentQuestionIndex) {
   questionContainer.innerText = currentQuestion.text;
   optionContainer.innerHTML = '';
 
+  // pour minimiser les reflows
   const fragment = document.createDocumentFragment();
 
   currentQuestion.options.forEach(option => {
@@ -149,15 +150,18 @@ replayButton.addEventListener('click', () => {
   dinoImage.style.display = 'none';
   updateProgressBar();
 });
+
 loadQuestion(currentQuestionIndex);
+
 // Affichage du score
 const score = document.querySelector('#score');
+
 // Système de points
 let pointCount = 0
+
 function checkAnswer(optionChoisi, correct_answer) {
   if (optionChoisi === correct_answer) {
     pointCount++;
-
     console.log('Bonne réponse')
   } else {
     console.log('Mauvaise réponse')
