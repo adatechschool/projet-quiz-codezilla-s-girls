@@ -9,7 +9,7 @@ let currentQuestionIndex = 0;
 
 const message = document.querySelector('#message');
 const displayEnd = document.querySelector('.display-end');
-
+displayEnd.classList.add('animate__animated', 'animate__fadeInDown')
 // Test progress_bar
 const progress_bar = document.querySelector('.progress');
 progress_bar.style.display = 'block';
@@ -26,7 +26,7 @@ function loadQuestion(currentQuestionIndex) {
 
   currentQuestion.options.forEach(option => {
     const optionButton = document.createElement('button');
-    optionButton.classList.add('option-button')
+    optionButton.classList.add('option-button', 'animate__animated', 'animate__fadeInLeft')
     //optionButton.innerText = option; 
 
     optionButton.innerHTML = `<img src = ${option.image} class='dyno'/><p></p>`
@@ -74,6 +74,7 @@ function loadQuestion(currentQuestionIndex) {
 const buttonSuivant = document.querySelector('#next-button');
 const replayButton = document.querySelector('#replay-button');
 
+
 buttonSuivant.addEventListener('click', () => {
   currentQuestionIndex++;
 
@@ -91,6 +92,7 @@ buttonSuivant.addEventListener('click', () => {
     dinoImage.style.display = 'block'
     buttonSuivant.style.display = 'none';
     replayButton.style.display = "inline-block";
+  
     progress_bar.style.width = '100%'
     score.innerHTML = `Tu as un score total de  :  ${pointCount}`
     if (pointCount === quizZilla.questions.length) {
@@ -151,6 +153,7 @@ replayButton.addEventListener('click', () => {
 loadQuestion(currentQuestionIndex);
 // Affichage du score
 const score = document.querySelector('#score');
+
 // Système de points
 let pointCount = 0
 function checkAnswer(optionChoisi, correct_answer) {
@@ -162,5 +165,5 @@ function checkAnswer(optionChoisi, correct_answer) {
     console.log('Mauvaise réponse')
   }
 
-  return score.innerText = `Votre score est de ${pointCount}`
+  return score.innerText = `Ton score est de ${pointCount}`
 };
