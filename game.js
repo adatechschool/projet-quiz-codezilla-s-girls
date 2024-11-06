@@ -23,21 +23,25 @@ function loadQuestion(currentQuestionIndex) {
   const currentQuestion = quizZilla.questions[currentQuestionIndex];
   questionContainer.innerText = currentQuestion.text;
   optionContainer.innerHTML = '';
-
-  // pour minimiser les reflows
-  const fragment = document.createDocumentFragment();
-
+  
   currentQuestion.options.forEach(option => {
     const optionButton = document.createElement('button'); 
     optionButton.classList.add('option-button')
-    optionButton.innerHTML = `<img src = ${option.image} class='dyno'/><p>${option.text}</p>`
-    fragment.appendChild(optionButton);
+    //optionButton.innerText = option; 
+    optionButton.innerHTML = `<img src = ${option.image} class='dyno'/><p></p>`
+    optionContainer.appendChild(optionButton);
+    buttonSuivant.disabled = true;
+    const label = optionButton.querySelector('p');
+    label.innerText = option.text
+    //const imageView = optionButton.querySelector('img');
+    //imageView.innerHTML = `<img src = '${option.image}' class='dyno'/><p></p>`;
+    dinoImage.style.display = 'none';
+    displayEnd.style.display = 'none'
 
-  // ajouter l'écouteur de click à chaque option pour appeler checkAnswer
-  optionButton.addEventListener("click", (event) => {
-    const target = event.currentTarget;
-    const optionChoisi = target.querySelector('p').innerText;
-    console.log('j\'affiche l\'option choisi : ', optionChoisi)
+    // ajouter l'écouteur de click à chaque option pour appeler checkAnswer
+    optionButton.onclick = function() {
+    const optionChoisi = optionButton.querySelector('p').innerText;
+
     checkAnswer(optionChoisi, currentQuestion.correct_answer);
 
     buttonSuivant.disabled = false;
@@ -47,30 +51,24 @@ function loadQuestion(currentQuestionIndex) {
     const allOptions = optionContainer.querySelectorAll('button');
     allOptions.forEach(btn => {
       btn.disabled = true;
-      if (btn === target) {
-        // Ajouter une bordure à la bonne réponse 
-        if (optionChoisi === currentQuestion.correct_answer) {
-          target.style.border = "5px solid green"
-        } else {
-          target.style.border = "5px solid red"
-        }
-        // option cliquable qu'une seule fois
-        btn.disabled = true;
+      //console.log('Options désactivée :', btn.innerText);
+
+
+      // Ajouter une bordure à la bonne réponse 
+      if (optionChoisi === currentQuestion.correct_answer){
+        optionButton.style.border = "5px solid green"
+      } else {
+        optionButton.style.border = "5px solid red"
       }
+      // option cliquable qu'une seule fois
+      optionButton.disabled = true
+      // bouton suivant qui s'active une fois qu'une option est choisie
+      buttonSuivant.disabled = false;
     });
-    // bouton suivant qui s'active une fois qu'une option est choisie
-    buttonSuivant.disabled = false;
-    displayEnd.style.display = 'flex';
-  });
-});
-
-optionContainer.appendChild(fragment);
-buttonSuivant.disabled = true;
-dinoImage.style.display = 'none';
-displayEnd.style.display = 'none'
-
-updateProgressBar();
-}
+    };
+  })};
+  updateProgressBar();
+;
 // Récupérer le bouton suivant & le bouton replay
 const buttonSuivant = document.querySelector('#next-button');
 const replayButton = document.querySelector('#replay-button');
@@ -137,7 +135,6 @@ buttonSuivant.addEventListener('click', () => {
   }
   
 });
-
 // Fonction pour réinitialiser le quiz
 replayButton.addEventListener('click', () => {
   currentQuestionIndex = 0;
