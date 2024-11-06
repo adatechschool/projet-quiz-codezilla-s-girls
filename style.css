@@ -1,7 +1,10 @@
 *{
+    /*simplifie la gestion des dimensions des élément*/
     box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
+    /*améliore le rendu des polices de texte*/
+    -webkit-font-smoothing: antialiased; 
     -moz-osx-font-smoothing: grayscale;
+    /*annulent les marges et le padding par défaut des éléments*/
     margin: 0;
     padding: 0;
 }
@@ -64,6 +67,26 @@ body {
 a:hover {
     color: #F69637;
     transition: all 0.3s ease; 
+}
+.menu {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+  
+.menu li {
+    position: relative; /* Permet de positionner le sous-menu */
+}
+.submenu {
+    display: none;    /*Masquer le sous-menu par défaut */
+    position: absolute;
+    background-color: #ffffff; 
+}
+.menu li:hover .submenu {
+    display: block; /* Afficher le sous-menu au survol */
+}
+.submenu li {
+    padding: 10px;
 }
 .question{
     background-color: #ffffff;
@@ -134,26 +157,5 @@ a:hover {
     background-color: rgb(68, 18, 115); /* Couleur de fond au clic */
     transform: scale(0.98); /* Rétrécissement léger */
 }
-.menu {
-    list-style: none;
-    padding: 0;
-    display: flex;
-  }
-  
-  .menu li {
-    position: relative; /* Permet de positionner le sous-menu */
-  }
-  .submenu {
-    display: none;    /*Masquer le sous-menu par défaut */
-    position: absolute;
-    background-color: #ffffff;
-  }
-  
-  .menu li:hover .submenu {
-    display: block; /* Afficher le sous-menu au survol */
-  }
-  
-  .submenu li {
-    padding: 10px;
-  }
+
   
