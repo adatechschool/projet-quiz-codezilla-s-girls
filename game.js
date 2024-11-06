@@ -19,16 +19,16 @@ const updateProgressBar = () => {
   progress_bar.style.width = `${progressPercentage}%`;
 };
 
-function loadQuestion(currentQuestionIndex){
+function loadQuestion(currentQuestionIndex) {
   const currentQuestion = quizZilla.questions[currentQuestionIndex];
   questionContainer.innerText = currentQuestion.text;
-
   optionContainer.innerHTML = '';
-  
+
   currentQuestion.options.forEach(option => {
     const optionButton = document.createElement('button');
     optionButton.classList.add('option-button')
     //optionButton.innerText = option; 
+
     optionButton.innerHTML = `<img src = ${option.image} class='dyno'/><p></p>`
     optionContainer.appendChild(optionButton);
     buttonSuivant.disabled = true;
@@ -42,15 +42,18 @@ function loadQuestion(currentQuestionIndex){
     // ajouter l'écouteur de click à chaque option pour appeler checkAnswer
     optionButton.onclick = function() {
     const optionChoisi = optionButton.querySelector('p').innerText;
+
     checkAnswer(optionChoisi, currentQuestion.correct_answer);
+
     buttonSuivant.disabled = false;
     displayEnd.style.display = 'flex';
-    
+
     // Désactivé les autres options lorsque une option est choisie
     const allOptions = optionContainer.querySelectorAll('button');
     allOptions.forEach(btn => {
       btn.disabled = true;
       //console.log('Options désactivée :', btn.innerText);
+
 
       // Ajouter une bordure à la bonne réponse 
       if (optionChoisi === currentQuestion.correct_answer){
@@ -71,25 +74,26 @@ function loadQuestion(currentQuestionIndex){
 const buttonSuivant = document.querySelector('#next-button');
 const replayButton = document.querySelector('#replay-button');
 
-buttonSuivant.addEventListener('click',() => {
+buttonSuivant.addEventListener('click', () => {
   currentQuestionIndex++;
+
   // Vérifier s'il reste des questions
   if (currentQuestionIndex < quizZilla.questions.length) {
     loadQuestion(currentQuestionIndex)
     displayEnd.style.display = 'block';
     updateProgressBar();
-    console.log('j affiche le score', displayEnd)
+    //console.log('j affiche le score', displayEnd)
   } else {
     // Si plus de questions, indiquer la fin du quiz
     questionContainer.innerText = 'Fin du quiz';
-    optionContainer.innerHTML = ''; 
-    dinoImage.src = "images/dinoDingo.png" ;
+    optionContainer.innerHTML = '';
+    dinoImage.src = "images/dinoDingo.png";
     dinoImage.style.display = 'block'
-    buttonSuivant.style.display = 'none'; 
+    buttonSuivant.style.display = 'none';
     replayButton.style.display = "inline-block";
     progress_bar.style.width = '100%'
-    score.innerHTML =`Tu as un score total de  :  ${pointCount}`
-    if (pointCount === quizZilla.questions.length){
+    score.innerHTML = `Tu as un score total de  :  ${pointCount}`
+    if (pointCount === quizZilla.questions.length) {
       message.innerText = "Bien joué !!!"
       var defaults = {
         spread: 360,
@@ -99,7 +103,7 @@ buttonSuivant.addEventListener('click',() => {
         startVelocity: 30,
         colors: ['FFE400', 'FFBD00', 'E89400', 'FFCA6C', 'FDFFB8']
       };
-      
+
       function shoot() {
         confetti({
           ...defaults,
@@ -107,7 +111,7 @@ buttonSuivant.addEventListener('click',() => {
           scalar: 1.2,
           shapes: ['star']
         });
-      
+
         confetti({
           ...defaults,
           particleCount: 10,
@@ -115,11 +119,11 @@ buttonSuivant.addEventListener('click',() => {
           shapes: ['circle']
         });
       }
-      
+
       setTimeout(shoot, 0);
       setTimeout(shoot, 100);
       setTimeout(shoot, 200);
-    } else if (pointCount >= 0.5*quizZilla.questions.length){
+    } else if (pointCount >= 0.5 * quizZilla.questions.length) {
       message.innerText = "Pas mal !"
       confetti({
         particleCount: 100,
@@ -130,18 +134,19 @@ buttonSuivant.addEventListener('click',() => {
       message.innerText = "Recommence"
     }
   }
+  
 });
 // Fonction pour réinitialiser le quiz
 replayButton.addEventListener('click', () => {
-    currentQuestionIndex=0; 
-    buttonSuivant.style.display='inline-block';
-    replayButton.style.display ='none';
-    loadQuestion(currentQuestionIndex);
-    score.innerHTML="";
-    pointCount = 0;
-    message.innerHTML="";
-    dinoImage.style.display = 'none';
-    updateProgressBar();
+  currentQuestionIndex = 0;
+  buttonSuivant.style.display = 'inline-block';
+  replayButton.style.display = 'none';
+  loadQuestion(currentQuestionIndex);
+  score.innerHTML = "";
+  pointCount = 0;
+  message.innerHTML = "";
+  dinoImage.style.display = 'none';
+  updateProgressBar();
 });
 loadQuestion(currentQuestionIndex);
 // Affichage du score
@@ -151,8 +156,9 @@ let pointCount = 0
 function checkAnswer(optionChoisi, correct_answer) {
   if (optionChoisi === correct_answer) {
     pointCount++;
+
     console.log('Bonne réponse')
-  }else{
+  } else {
     console.log('Mauvaise réponse')
   }
 
