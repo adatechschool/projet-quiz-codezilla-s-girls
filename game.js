@@ -40,8 +40,8 @@ function loadQuestion(currentQuestionIndex){
     displayEnd.style.display = 'none'
 
     // ajouter l'écouteur de click à chaque option pour appeler checkAnswer
-    optionButton.addEventListener("click", (event) => {
-    const optionChoisi = event.target.querySelector('p').innerText;
+    optionButton.onclick = function() {
+    const optionChoisi = optionButton.querySelector('p').innerText;
     checkAnswer(optionChoisi, currentQuestion.correct_answer);
     buttonSuivant.disabled = false;
     displayEnd.style.display = 'flex';
@@ -54,21 +54,19 @@ function loadQuestion(currentQuestionIndex){
 
       // Ajouter une bordure à la bonne réponse 
       if (optionChoisi === currentQuestion.correct_answer){
-        event.target.style.border = "5px solid green"
+        optionButton.style.border = "5px solid green"
       } else {
-        event.target.style.border = "5px solid red"
+        optionButton.style.border = "5px solid red"
       }
-
       // option cliquable qu'une seule fois
-      event.target.disabled = true;
-
+      optionButton.disabled = true
       // bouton suivant qui s'active une fois qu'une option est choisie
       buttonSuivant.disabled = false;
     });
-    });
-  });
+    };
+  })};
   updateProgressBar();
-};
+;
 // Récupérer le bouton suivant & le bouton replay
 const buttonSuivant = document.querySelector('#next-button');
 const replayButton = document.querySelector('#replay-button');
@@ -133,7 +131,6 @@ buttonSuivant.addEventListener('click',() => {
     }
   }
 });
-
 // Fonction pour réinitialiser le quiz
 replayButton.addEventListener('click', () => {
     currentQuestionIndex=0; 
