@@ -19,11 +19,11 @@
         options: [
 
           {text:"C'est comme un dinosaure coloré", image:"images/dino-coloré.png"},
-          {text:"C'est comme une squelette de dinosaure", image:"images/squelette-dino.png"},
-          {text:"C'est comme un dinosaure sans coloré", image:"images/dino-sans-color.png"},
+          {text:"C'est comme un squelette de dinosaure", image:"images/squelette-dino.png"},
+          {text:"C'est comme un dinosaure sans couleur", image:"images/dino-sans-color.png"},
           {text:"C'est comme un dinosaure dynamique", image:"images/dino-vert2.png"}
         ],
-        correct_answer: "C'est comme une squelette de dinosaure"
+        correct_answer: "C'est comme un squelette de dinosaure"
 
       },
       {
@@ -39,7 +39,7 @@
       },
     
     {
-      text: "Quelle propriété CSS qui change la couleur d'un dinosaure en blue ?",
+      text: "Quelle propriété CSS change la couleur d'un dinosaure en bleu ?",
       options: [
         {text:"color: blue", image:"images/dino-color-bleu.png"},
         {text:"background-color: blue", image:"images/dino-front-bleu.jpg"},
