@@ -28,14 +28,9 @@ function loadQuestion(currentQuestionIndex) {
     const optionButton = document.createElement('button');
     optionButton.classList.add('option-button', 'animate__animated', 'animate__fadeInLeft')
     //optionButton.innerText = option; 
-
-    optionButton.innerHTML = `<img src = ${option.image} class='dyno'/><p></p>`
+    optionButton.innerHTML = `<img src = ${option.image} class='dyno'/><p>${option.text}</p>`
     optionContainer.appendChild(optionButton);
     buttonSuivant.disabled = true;
-    const label = optionButton.querySelector('p');
-    label.innerText = option.text
-    //const imageView = optionButton.querySelector('img');
-    //imageView.innerHTML = `<img src = '${option.image}' class='dyno'/><p></p>`;
     dinoImage.style.display = 'none';
     displayEnd.style.display = 'none'
 
@@ -53,8 +48,6 @@ function loadQuestion(currentQuestionIndex) {
     allOptions.forEach(btn => {
       btn.disabled = true;
       //console.log('Options désactivée :', btn.innerText);
-
-
       // Ajouter une bordure à la bonne réponse 
       if (optionChoisi === currentQuestion.correct_answer){
         optionButton.style.border = "5px solid green"
@@ -73,7 +66,6 @@ function loadQuestion(currentQuestionIndex) {
 // Récupérer le bouton suivant & le bouton replay
 const buttonSuivant = document.querySelector('#next-button');
 const replayButton = document.querySelector('#replay-button');
-
 
 buttonSuivant.addEventListener('click', () => {
   currentQuestionIndex++;
@@ -135,8 +127,7 @@ buttonSuivant.addEventListener('click', () => {
     } else {
       message.innerText = "Recommence"
     }
-  }
-  
+  } 
 });
 // Fonction pour réinitialiser le quiz
 replayButton.addEventListener('click', () => {
@@ -153,7 +144,6 @@ replayButton.addEventListener('click', () => {
 loadQuestion(currentQuestionIndex);
 // Affichage du score
 const score = document.querySelector('#score');
-
 // Système de points
 let pointCount = 0
 function checkAnswer(optionChoisi, correct_answer) {
