@@ -26,14 +26,13 @@ function loadQuestion(currentQuestionIndex) {
 
   currentQuestion.options.forEach(option => {
     const optionButton = document.createElement('button');
-    optionButton.classList.add('option-button', 'animate__animated', 'animate__fadeInLeft')
     //optionButton.innerText = option; 
     optionButton.innerHTML = `<img src = ${option.image} class='dyno'/><p>${option.text}</p>`
     optionContainer.appendChild(optionButton);
+    optionButton.classList.add('option-button', 'animate__animated', 'animate__fadeInLeft')
     buttonSuivant.disabled = true;
     dinoImage.style.display = 'none';
     displayEnd.style.display = 'none'
-
     // ajouter l'écouteur de click à chaque option pour appeler checkAnswer
     optionButton.onclick = function() {
     const optionChoisi = optionButton.querySelector('p').innerText;
@@ -69,7 +68,6 @@ const replayButton = document.querySelector('#replay-button');
 
 buttonSuivant.addEventListener('click', () => {
   currentQuestionIndex++;
-
   // Vérifier s'il reste des questions
   if (currentQuestionIndex < quizZilla.questions.length) {
     loadQuestion(currentQuestionIndex)
@@ -97,7 +95,6 @@ buttonSuivant.addEventListener('click', () => {
         startVelocity: 30,
         colors: ['FFE400', 'FFBD00', 'E89400', 'FFCA6C', 'FDFFB8']
       };
-
       function shoot() {
         confetti({
           ...defaults,
@@ -105,7 +102,6 @@ buttonSuivant.addEventListener('click', () => {
           scalar: 1.2,
           shapes: ['star']
         });
-
         confetti({
           ...defaults,
           particleCount: 10,
@@ -113,7 +109,6 @@ buttonSuivant.addEventListener('click', () => {
           shapes: ['circle']
         });
       }
-
       setTimeout(shoot, 0);
       setTimeout(shoot, 100);
       setTimeout(shoot, 200);
@@ -132,13 +127,13 @@ buttonSuivant.addEventListener('click', () => {
 // Fonction pour réinitialiser le quiz
 replayButton.addEventListener('click', () => {
   currentQuestionIndex = 0;
+  pointCount = 0;
+  score.innerHTML = "";
+  message.innerHTML = "";
   buttonSuivant.style.display = 'inline-block';
   replayButton.style.display = 'none';
-  loadQuestion(currentQuestionIndex);
-  score.innerHTML = "";
-  pointCount = 0;
-  message.innerHTML = "";
   dinoImage.style.display = 'none';
+  loadQuestion(currentQuestionIndex);
   updateProgressBar();
 });
 loadQuestion(currentQuestionIndex);
@@ -149,11 +144,9 @@ let pointCount = 0
 function checkAnswer(optionChoisi, correct_answer) {
   if (optionChoisi === correct_answer) {
     pointCount++;
-
     console.log('Bonne réponse')
   } else {
     console.log('Mauvaise réponse')
   }
-
   return score.innerText = `Ton score est de ${pointCount}`
 };
