@@ -23,6 +23,3 @@ Les fonctionnalités requises sont les suivantes:
 7. Le score est calculé et affiché à la fin du quiz.
 8. Un message personnalisé est affiché en fonction du score.
 9. Une fois le quiz terminé, l'utilisateur·ice a la possibilité de cliquer un bouton pour rejouer.
-
-## Date de livraison
-Vendredi 08 Novembre 2024
