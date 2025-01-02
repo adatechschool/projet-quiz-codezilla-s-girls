@@ -1,23 +1,18 @@
-import { quizZilla } from './question.js';
+import { quizZilla } from '../js/question.js';
+import { updateProgressBar } from '../js/progressBar.js';
+import { checkAnswer } from '../js/game.js';
 
 // Récupérer les emplacements pour injecter la question et les options
 const questionContainer = document.querySelector('.question');
 const optionContainer = document.querySelector('.options');
 const dinoImage = document.querySelector('#dinoImage');
 
-let currentQuestionIndex = 0;
+export let currentQuestionIndex = 0;
 
 const message = document.querySelector('#message');
 const displayEnd = document.querySelector('.display-end');
-displayEnd.classList.add('animate__animated', 'animate__fadeInDown')
-// Test progress_bar
-const progress_bar = document.querySelector('.progress');
-progress_bar.style.display = 'block';
-const updateProgressBar = () => {
-  const progressPercentage = (currentQuestionIndex / quizZilla.questions.length) * 100;
-  console.log(progressPercentage)
-  progress_bar.style.width = `${progressPercentage}%`;
-};
+displayEnd.classList.add('animate__animated', 'animate__fadeInDown');
+
 
 function loadQuestion(currentQuestionIndex) {
   const currentQuestion = quizZilla.questions[currentQuestionIndex];
@@ -26,19 +21,13 @@ function loadQuestion(currentQuestionIndex) {
 
   currentQuestion.options.forEach(option => {
     const optionButton = document.createElement('button');
-    optionButton.classList.add('option-button', 'animate__animated', 'animate__fadeInLeft')
     //optionButton.innerText = option; 
-
-    optionButton.innerHTML = `<img src = ${option.image} class='dyno'/><p></p>`
+    optionButton.innerHTML = `<img src = ${option.image} class='dyno'/><p>${option.text}</p>`
     optionContainer.appendChild(optionButton);
+    optionButton.classList.add('option-button', 'animate__animated', 'animate__fadeInLeft')
     buttonSuivant.disabled = true;
-    const label = optionButton.querySelector('p');
-    label.innerText = option.text
-    //const imageView = optionButton.querySelector('img');
-    //imageView.innerHTML = `<img src = '${option.image}' class='dyno'/><p></p>`;
     dinoImage.style.display = 'none';
     displayEnd.style.display = 'none'
-
     // ajouter l'écouteur de click à chaque option pour appeler checkAnswer
     optionButton.onclick = function() {
     const optionChoisi = optionButton.querySelector('p').innerText;
@@ -53,7 +42,6 @@ function loadQuestion(currentQuestionIndex) {
     allOptions.forEach(btn => {
       btn.disabled = true;
       //console.log('Options désactivée :', btn.innerText);
-
       // Ajouter une bordure à la bonne réponse 
       if (optionChoisi === currentQuestion.correct_answer){
         optionButton.style.border = "5px solid green"
@@ -69,14 +57,12 @@ function loadQuestion(currentQuestionIndex) {
   })};
   updateProgressBar();
 ;
-// Récupérer le bouton suivant & le bouton replay
+
 const buttonSuivant = document.querySelector('#next-button');
 const replayButton = document.querySelector('#replay-button');
 
-
 buttonSuivant.addEventListener('click', () => {
   currentQuestionIndex++;
-
   // Vérifier s'il reste des questions
   if (currentQuestionIndex < quizZilla.questions.length) {
     loadQuestion(currentQuestionIndex)
@@ -104,7 +90,6 @@ buttonSuivant.addEventListener('click', () => {
         startVelocity: 30,
         colors: ['FFE400', 'FFBD00', 'E89400', 'FFCA6C', 'FDFFB8']
       };
-
       function shoot() {
         confetti({
           ...defaults,
@@ -112,7 +97,6 @@ buttonSuivant.addEventListener('click', () => {
           scalar: 1.2,
           shapes: ['star']
         });
-
         confetti({
           ...defaults,
           particleCount: 10,
@@ -120,7 +104,6 @@ buttonSuivant.addEventListener('click', () => {
           shapes: ['circle']
         });
       }
-
       setTimeout(shoot, 0);
       setTimeout(shoot, 100);
       setTimeout(shoot, 200);
@@ -134,36 +117,18 @@ buttonSuivant.addEventListener('click', () => {
     } else {
       message.innerText = "Recommence"
     }
-  }
-  
+  } 
 });
 // Fonction pour réinitialiser le quiz
 replayButton.addEventListener('click', () => {
   currentQuestionIndex = 0;
+  pointCount = 0;
+  score.innerHTML = "";
+  message.innerHTML = "";
   buttonSuivant.style.display = 'inline-block';
   replayButton.style.display = 'none';
-  loadQuestion(currentQuestionIndex);
-  score.innerHTML = "";
-  pointCount = 0;
-  message.innerHTML = "";
   dinoImage.style.display = 'none';
+  loadQuestion(currentQuestionIndex);
   updateProgressBar();
 });
 loadQuestion(currentQuestionIndex);
-
-// Affichage du score
-const score = document.querySelector('#score');
-
-// Système de points
-let pointCount = 0
-function checkAnswer(optionChoisi, correct_answer) {
-  if (optionChoisi === correct_answer) {
-    pointCount++;
-
-    console.log('Bonne réponse')
-  } else {
-    console.log('Mauvaise réponse')
-  }
-
-  return score.innerText = `Ton score est de ${pointCount}`
-};
