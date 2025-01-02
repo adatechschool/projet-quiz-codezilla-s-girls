@@ -54,7 +54,6 @@ function loadQuestion(currentQuestionIndex) {
       btn.disabled = true;
       //console.log('Options désactivée :', btn.innerText);
 
-
       // Ajouter une bordure à la bonne réponse 
       if (optionChoisi === currentQuestion.correct_answer){
         optionButton.style.border = "5px solid green"
@@ -151,6 +150,7 @@ replayButton.addEventListener('click', () => {
   updateProgressBar();
 });
 loadQuestion(currentQuestionIndex);
+
 // Affichage du score
 const score = document.querySelector('#score');
 
