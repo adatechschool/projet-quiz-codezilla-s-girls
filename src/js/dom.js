@@ -1,6 +1,8 @@
 import { quizZilla } from '../js/question.js';
-import { updateProgressBar } from '../js/progressBar.js';
+import { updateProgressBar, progress_bar } from '../js/progressBar.js';
 import { checkAnswer } from '../js/game.js';
+
+let pointCount = 0;
 
 // Récupérer les emplacements pour injecter la question et les options
 const questionContainer = document.querySelector('.question');
